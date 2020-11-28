@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <property name="autoIncrement" value="true"/>
+
+    <changeSet id="4" author="kolege">
+        <createTable tableName="currency_type">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}" >
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="varchar(100)">
+                <constraints nullable="false" unique="true" uniqueConstraintName="ux_currency_type_name"/>
+            </column>
+            <column name="code" type="varchar(20)">
+                <constraints nullable="false" unique="true" uniqueConstraintName="ux_currency_type_code"/>
+            </column>
+            <column name="category_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <loadData
+            file="config/tenant-liquibase/data/currency_type.csv"
+            separator=";"
+            tableName="currency_type">
+        </loadData>
+
+        <loadData
+            file="config/tenant-liquibase/data/mine_type.csv"
+            separator=";"
+            tableName="currency_type">
+        </loadData>
+
+    </changeSet>
+
+
+</databaseChangeLog>

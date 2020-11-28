@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <property name="autoIncrement" value="true"/>
+
+    <changeSet id="3" author="Kolege">
+
+        <createTable tableName="exchange_category">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="varchar(100)">
+                <constraints nullable="false" unique="true" uniqueConstraintName="ux_exchange_category_name"/>
+            </column>
+            <column name="tax_rate" type="decimal(6,4)" defaultValue="0.0">
+                <constraints nullable="false"/>
+            </column>
+            <column name="measurement_unit_id" type="bigint">
+            </column>
+        </createTable>
+
+        <createTable tableName="measurement_unit">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="varchar(100)">
+                <constraints nullable="false" unique="true" uniqueConstraintName="ux_measurement_unit_name"/>
+            </column>
+            <column name="code" type="varchar(50)">
+                <constraints nullable="true"/>
+            </column>
+        </createTable>
+
+        <addForeignKeyConstraint baseColumnNames="measurement_unit_id"
+                                 baseTableName="exchange_category"
+                                 constraintName="fk_exchange_category_measurement_unit_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="measurement_unit"/>
+        <loadData
+            file="config/tenant-liquibase/data/measurement_unit.csv"
+            separator=";"
+            tableName="measurement_unit">
+        </loadData>
+        <loadData
+            file="config/tenant-liquibase/data/exchange_category.csv"
+            separator=";"
+            tableName="exchange_category">
+        </loadData>
+
+
+    </changeSet>
+
+
+</databaseChangeLog>

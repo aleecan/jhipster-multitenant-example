@@ -71,7 +71,7 @@ public class MultiTenantDataSourceLookup extends MapDataSourceLookup {
 		SpringLiquibase liquibase = new AsyncSpringLiquibase(taskExecutor, environment);
 		liquibase.setResourceLoader(resourceLoader);
 		liquibase.setDataSource(customDataSource);
-		liquibase.setChangeLog("classpath:config/liquibase/master.xml");
+		liquibase.setChangeLog("classpath:config/tenant-liquibase/master.xml");
 		liquibase.setContexts(liquibaseProperties.getContexts());
 		liquibase.setDefaultSchema(liquibaseProperties.getDefaultSchema());
 		liquibase.setDropFirst(liquibaseProperties.isDropFirst());

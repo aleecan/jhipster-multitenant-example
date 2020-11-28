@@ -48,7 +48,7 @@ import liquibase.integration.spring.SpringLiquibase;
 @EnableJpaAuditing(auditorAwareRef = "springSecurityAuditorAware")
 @EnableTransactionManagement
 public class DatabaseConfiguration {
-	
+
 	@Autowired MultiTenantConnectionProviderImpl dsProvider;
 
     @Autowired CurrentTenantIdentifierResolverImpl tenantResolver;
@@ -56,9 +56,9 @@ public class DatabaseConfiguration {
     private final Logger log = LoggerFactory.getLogger(DatabaseConfiguration.class);
 
     private final Environment env;
-    
+
     @Autowired ApplicationContext context;
-    
+
     @Autowired(required = false)
     private MetricRegistry metricRegistry;
 
@@ -66,17 +66,6 @@ public class DatabaseConfiguration {
         this.env = env;
     }
 
-    /**
-     * Open the TCP port for the H2 database, so it is available remotely.
-     *
-     * @return the H2 database TCP server
-     * @throws SQLException if the server failed to start
-     */
-    @Bean(initMethod = "start", destroyMethod = "stop")
-    @Profile(JHipsterConstants.SPRING_PROFILE_DEVELOPMENT)
-    public Server h2TCPServer() throws SQLException {
-        return Server.createTcpServer("-tcp","-tcpAllowOthers");
-    }
 
     @Bean
     public SpringLiquibase liquibase(@Qualifier("taskExecutor") TaskExecutor taskExecutor,
@@ -97,7 +86,7 @@ public class DatabaseConfiguration {
         }
         return liquibase;
     }
-    
+
     @Bean
     public JpaVendorAdapter jpaVendorAdapter() {
         HibernateJpaVendorAdapter hibernateJpaVendorAdapter = new HibernateJpaVendorAdapter();
@@ -111,7 +100,7 @@ public class DatabaseConfiguration {
         return hibernateJpaVendorAdapter;
     }
 
-    
+
     @Bean(destroyMethod = "shutdown")
     public DataSource dataSource() {
         log.debug("Configuring Datasource");
@@ -139,7 +128,7 @@ public class DatabaseConfiguration {
         }
         return new HikariDataSource(config);
     }
-    
+
     /**
      * Configures the Hibernate JPA service with multi-tenant support enabled.
      * @param builder
@@ -148,7 +137,7 @@ public class DatabaseConfiguration {
     @PersistenceContext @Primary @Bean
     public LocalContainerEntityManagerFactoryBean entityManagerFactory(EntityManagerFactoryBuilder builder) {
     	RelaxedPropertyResolver propertyResolver = new RelaxedPropertyResolver(env, "spring.jpa.properties");
-    	
+
         Map<String, Object> props = new HashMap<>();
         props.put("hibernate.multiTenancy", MultiTenancyStrategy.DATABASE.name());
         props.put("hibernate.multi_tenant_connection_provider", dsProvider);

@@ -1,0 +1,167 @@
+id;category_id;code;name
+1;1;AED;United Arab Emirates Dirham
+2;1;AFN;Afghan Afghani
+3;1;ALL;Albanian Lek
+4;1;AMD;Armenian Dram
+5;1;ANG;Netherlands Antillean Guilder
+6;1;AOA;Angolan Kwanza
+8;1;ARS;Argentine Peso
+9;1;AUD;Australian Dollar
+10;1;AWG;Aruban Florin
+11;1;AZN;Azerbaijani Manat
+12;1;BAM;Bosnia-Herzegovina Convertible Mark
+13;1;BBD;Barbadian Dollar
+14;1;BDT;Bangladeshi Taka
+15;1;BGN;Bulgarian Lev
+16;1;BHD;Bahraini Dinar
+17;1;BIF;Burundian Franc
+18;1;BMD;Bermudan Dollar
+19;1;BND;Brunei Dollar
+20;1;BOB;Bolivian Boliviano
+21;1;BRL;Brazilian Real
+22;1;BSD;Bahamian Dollar
+23;1;BTC;Bitcoin
+24;1;BTN;Bhutanese Ngultrum
+25;1;BWP;Botswanan Pula
+26;1;BYN;New Belarusian Ruble
+27;1;BYR;Belarusian Ruble
+28;1;BZD;Belize Dollar
+29;1;CAD;Canadian Dollar
+30;1;CDF;Congolese Franc
+31;1;CHF;Swiss Franc
+32;1;CLF;Chilean Unit of Account (UF)
+33;1;CLP;Chilean Peso
+34;1;CNY;Chinese Yuan
+35;1;COP;Colombian Peso
+36;1;CRC;Costa Rican Colón
+37;1;CUC;Cuban Convertible Peso
+38;1;CUP;Cuban Peso
+39;1;CVE;Cape Verdean Escudo
+40;1;CZK;Czech Republic Koruna
+41;1;DJF;Djiboutian Franc
+42;1;DKK;Danish Krone
+43;1;DOP;Dominican Peso
+44;1;DZD;Algerian Dinar
+45;1;EGP;Egyptian Pound
+46;1;ERN;Eritrean Nakfa
+47;1;ETB;Ethiopian Birr
+48;1;EUR;Euro
+49;1;FJD;Fijian Dollar
+50;1;FKP;Falkland Islands Pound
+51;1;GBP;British Pound Sterling
+52;1;GEL;Georgian Lari
+53;1;GGP;Guernsey Pound
+54;1;GHS;Ghanaian Cedi
+55;1;GIP;Gibraltar Pound
+56;1;GMD;Gambian Dalasi
+57;1;GNF;Guinean Franc
+58;1;GTQ;Guatemalan Quetzal
+59;1;GYD;Guyanaese Dollar
+60;1;HKD;Hong Kong Dollar
+61;1;HNL;Honduran Lempira
+62;1;HRK;Croatian Kuna
+63;1;HTG;Haitian Gourde
+64;1;HUF;Hungarian Forint
+65;1;IDR;Indonesian Rupiah
+66;1;ILS;Israeli New Sheqel
+67;1;IMP;Manx pound
+68;1;INR;Indian Rupee
+69;1;IQD;Iraqi Dinar
+70;1;IRR;Iranian Rial
+71;1;ISK;Icelandic Króna
+72;1;JEP;Jersey Pound
+73;1;JMD;Jamaican Dollar
+74;1;JOD;Jordanian Dinar
+75;1;JPY;Japanese Yen
+76;1;KES;Kenyan Shilling
+77;1;KGS;Kyrgystani Som
+78;1;KHR;Cambodian Riel
+79;1;KMF;Comorian Franc
+80;1;KPW;North Korean Won
+81;1;KRW;South Korean Won
+82;1;KWD;Kuwaiti Dinar
+83;1;KYD;Cayman Islands Dollar
+84;1;KZT;Kazakhstani Tenge
+85;1;LAK;Laotian Kip
+86;1;LBP;Lebanese Pound
+87;1;LKR;Sri Lankan Rupee
+88;1;LRD;Liberian Dollar
+89;1;LSL;Lesotho Loti
+90;1;LTL;Lithuanian Litas
+91;1;LVL;Latvian Lats
+92;1;LYD;Libyan Dinar
+93;1;MAD;Moroccan Dirham
+94;1;MDL;Moldovan Leu
+95;1;MGA;Malagasy Ariary
+96;1;MKD;Macedonian Denar
+97;1;MMK;Myanma Kyat
+98;1;MNT;Mongolian Tugrik
+99;1;MOP;Macanese Pataca
+100;1;MRO;Mauritanian Ouguiya
+101;1;MUR;Mauritian Rupee
+102;1;MVR;Maldivian Rufiyaa
+103;1;MWK;Malawian Kwacha
+104;1;MXN;Mexican Peso
+105;1;MYR;Malaysian Ringgit
+106;1;MZN;Mozambican Metical
+107;1;NAD;Namibian Dollar
+108;1;NGN;Nigerian Naira
+109;1;NIO;Nicaraguan Córdoba
+110;1;NOK;Norwegian Krone
+111;1;NPR;Nepalese Rupee
+112;1;NZD;New Zealand Dollar
+113;1;OMR;Omani Rial
+114;1;PAB;Panamanian Balboa
+115;1;PEN;Peruvian Nuevo Sol
+116;1;PGK;Papua New Guinean Kina
+117;1;PHP;Philippine Peso
+118;1;PKR;Pakistani Rupee
+119;1;PLN;Polish Zloty
+120;1;PYG;Paraguayan Guarani
+121;1;QAR;Qatari Rial
+122;1;RON;Romanian Leu
+123;1;RSD;Serbian Dinar
+124;1;RUB;Russian Ruble
+125;1;RWF;Rwandan Franc
+126;1;SAR;Saudi Riyal
+127;1;SBD;Solomon Islands Dollar
+128;1;SCR;Seychellois Rupee
+129;1;SDG;Sudanese Pound
+130;1;SEK;Swedish Krona
+131;1;SGD;Singapore Dollar
+132;1;SHP;Saint Helena Pound
+133;1;SLL;Sierra Leonean Leone
+134;1;SOS;Somali Shilling
+135;1;SRD;Surinamese Dollar
+136;1;STD;São Tomé and Príncipe Dobra
+137;1;SVC;Salvadoran Colón
+138;1;SYP;Syrian Pound
+139;1;SZL;Swazi Lilangeni
+140;1;THB;Thai Baht
+141;1;TJS;Tajikistani Somoni
+142;1;TMT;Turkmenistani Manat
+143;1;TND;Tunisian Dinar
+144;1;TOP;Tongan Paʻanga
+145;1;TRY;Turkish Lira
+146;1;TTD;Trinidad and Tobago Dollar
+147;1;TWD;New Taiwan Dollar
+148;1;TZS;Tanzanian Shilling
+149;1;UAH;Ukrainian Hryvnia
+150;1;UGX;Ugandan Shilling
+151;1;USD;United States Dollar
+152;1;UYU;Uruguayan Peso
+153;1;UZS;Uzbekistan Som
+154;1;VEF;Venezuelan Bolívar Fuerte
+155;1;VND;Vietnamese Dong
+156;1;VUV;Vanuatu Vatu
+157;1;WST;Samoan Tala
+158;1;XAF;CFA Franc BEAC
+161;1;XCD;East Caribbean Dollar
+162;1;XDR;Special Drawing Rights
+163;1;XOF;CFA Franc BCEAO
+164;1;XPF;CFP Franc
+165;1;YER;Yemeni Rial
+166;1;ZAR;South African Rand
+167;1;ZMK;Zambian Kwacha (pre-2013)
+168;1;ZMW;Zambian Kwacha
+169;1;ZWL;Zimbabwean Dollar
