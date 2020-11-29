@@ -1,5 +1,6 @@
 package com.souzadriano.multitenant.web.rest;
 
+import com.souzadriano.multitenant.security.SecurityUtils;
 import com.souzadriano.multitenant.security.jwt.JWTConfigurer;
 import com.souzadriano.multitenant.security.jwt.TokenProvider;
 import com.souzadriano.multitenant.web.rest.vm.LoginVM;
@@ -53,6 +54,7 @@ public class UserJWTController {
             boolean rememberMe = (loginVM.isRememberMe() == null) ? false : loginVM.isRememberMe();
             String jwt = tokenProvider.createToken(authentication, rememberMe);
             response.addHeader(JWTConfigurer.AUTHORIZATION_HEADER, "Bearer " + jwt);
+            log.debug(SecurityUtils.getCurrentUserLogin());
             return ResponseEntity.ok(new JWTToken(jwt));
         } catch (AuthenticationException ae) {
             log.trace("Authentication exception trace: {}", ae);
