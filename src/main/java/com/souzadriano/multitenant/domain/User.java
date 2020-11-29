@@ -22,15 +22,14 @@ import java.time.Instant;
  * A user.
  */
 @Entity
-@Table(name = "jhi_user")
+@Table(name = "user")
 
 public class User extends AbstractAuditingEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequenceGenerator")
-    @SequenceGenerator(name = "sequenceGenerator")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NotNull
@@ -86,13 +85,13 @@ public class User extends AbstractAuditingEntity implements Serializable {
     @JsonIgnore
     @ManyToMany
     @JoinTable(
-        name = "jhi_user_authority",
+        name = "user_authority",
         joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "id")},
         inverseJoinColumns = {@JoinColumn(name = "authority_name", referencedColumnName = "name")})
 
     @BatchSize(size = 20)
     private Set<Authority> authorities = new HashSet<>();
-    
+
     @ManyToOne
     @JoinColumn(name = "data_source_config")
     private DataSourceConfig dataSourceConfig;
@@ -200,7 +199,7 @@ public class User extends AbstractAuditingEntity implements Serializable {
     public void setAuthorities(Set<Authority> authorities) {
         this.authorities = authorities;
     }
-    
+
     public DataSourceConfig getDataSourceConfig() {
 		return dataSourceConfig;
 	}

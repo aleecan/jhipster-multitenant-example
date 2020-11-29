@@ -16,8 +16,7 @@ public class DataSourceConfig implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequenceGenerator")
-    @SequenceGenerator(name = "sequenceGenerator")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NotNull
@@ -33,7 +32,7 @@ public class DataSourceConfig implements Serializable {
     private String username;
 
     @NotNull
-    @Column(name = "jhi_password", nullable = false)
+    @Column(name = "password", nullable = false)
     private String password;
 
     @NotNull
