@@ -1,12 +1,12 @@
 {
   "generator-jhipster": {
     "promptValues": {
-      "packageName": "com.souzadriano.multitenant",
+      "packageName": "com.mikado.mikadosaas",
       "nativeLanguage": "pt-br"
     },
     "jhipsterVersion": "4.6.2",
     "baseName": "multitenant",
-    "packageName": "com.souzadriano.multitenant",
+    "packageName": "com.mikado.mikadosaas",
     "packageFolder": "com/souzadriano/multitenant",
     "serverPort": "8080",
     "authenticationType": "jwt",
