@@ -3,6 +3,7 @@ package com.mikado.multitenant.service.tenant;
 import com.mikado.multitenant.domain.tenant.AnnualLeaveGroup;
 import com.mikado.multitenant.domain.tenant.QAnnualLeaveGroup;
 import com.mikado.multitenant.repository.tenant.AnnualLeaveGroupRepository;
+import com.mikado.multitenant.service.base.ServiceResult;
 import com.querydsl.core.BooleanBuilder;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -23,9 +24,11 @@ public class AnnualLeaveGroupService {
         return annualLeaveGroupRepository.findOne(id);
     }
 
-    public AnnualLeaveGroup save(AnnualLeaveGroup annualLeaveGroup) {
+    public ServiceResult<AnnualLeaveGroup> save(AnnualLeaveGroup annualLeaveGroup) {
+        ServiceResult<AnnualLeaveGroup> serviceResult = new ServiceResult<>();
         annualLeaveGroup = annualLeaveGroupRepository.save(annualLeaveGroup);
-        return annualLeaveGroup;
+        serviceResult.setData(annualLeaveGroup);
+        return serviceResult;
     }
 
     public Page<AnnualLeaveGroup> findAll(BooleanBuilder booleanBuilder, PageRequest pageRequest) {
@@ -47,11 +50,13 @@ public class AnnualLeaveGroupService {
 
     }
 
-    public List<AnnualLeaveGroup> findAll() {
-        return annualLeaveGroupRepository.findAll();
+    public ServiceResult<List<AnnualLeaveGroup>> findAll() {
+        ServiceResult<List<AnnualLeaveGroup>> serviceResult = new ServiceResult();
+        serviceResult.setData(annualLeaveGroupRepository.findAll());
+        return serviceResult;
     }
 
     public AnnualLeaveGroup findByCode(String code) {
-        return annualLeaveGroupRepository.findOne(QAnnualLeaveGroup.annualLeaveGroup.alGroup.eq(code));
+        return annualLeaveGroupRepository.findOne(QAnnualLeaveGroup.annualLeaveGroup.code.eq(Integer.parseInt(code)));
     }
 }

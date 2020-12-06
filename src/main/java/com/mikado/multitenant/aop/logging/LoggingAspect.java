@@ -45,7 +45,7 @@ public class LoggingAspect {
      */
     @Pointcut("within(com.mikado.multitenant.repository..*)"+
         " || within(com.mikado.multitenant.service..*)"+
-        " || within(com.mikado.multitenant.web.rest..*)")
+        " || within(com.mikado.multitenant.resource.rest..*)")
     public void applicationPackagePointcut() {
         // Method is empty as this is just a Pointcut, the implementations are in the advices.
     }

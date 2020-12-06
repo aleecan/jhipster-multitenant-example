@@ -93,6 +93,7 @@
         <springfox.version>2.7.0</springfox.version>
         <validation-api.version>1.1.0.Final</validation-api.version>
         <yarn.version>v0.27.5</yarn.version>
+        <org.projectlombok.version>1.18.10</org.projectlombok.version>
     </properties>
 
     <dependencyManagement>
@@ -108,6 +109,13 @@
     </dependencyManagement>
 
     <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${org.projectlombok.version}</version>
+            <scope>provided</scope>
+            <type>jar</type>
+        </dependency>
         <dependency>
             <groupId>io.github.jhipster</groupId>
             <artifactId>jhipster</artifactId>
@@ -661,14 +669,30 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <annotationProcessorPaths>
+                        <path>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                            <version>${org.projectlombok.version}</version>
+                        </path>
+                        <path>
+                            <groupId>org.mapstruct</groupId>
+                            <artifactId>mapstruct-processor</artifactId>
+                            <version>${mapstruct.version}</version>
+                        </path>
+                    </annotationProcessorPaths>
+                </configuration>
+            </plugin>
         </plugins>
         <pluginManagement>
             <plugins>
-                <!--
-                    This plugin's configuration is used to store Eclipse m2e settings only.
-                    It has no influence on the Maven build itself.
-                    Remove when the m2e plugin can correctly bind to Maven lifecycle
-                -->
                 <plugin>
                     <groupId>org.eclipse.m2e</groupId>
                     <artifactId>lifecycle-mapping</artifactId>
@@ -892,15 +916,6 @@
             </properties>
         </profile>
         <profile>
-            <!--
-                Profile for doing "continuous compilation" with the Scala Maven plugin.
-                It allows automatic compilation of Java classes as soon as they are saved.
-                To use it, run in 3 terminals:
-                - './mvnw -Pcc scala:cc' for continuous compilation of your classes
-                - './mvnw -Pcc' for hot reload of Spring boot
-                - 'gulp' for hot reload of the HTML/JavaScript assets
-                Everything should hot reload automatically!
-            -->
             <id>cc</id>
             <dependencies>
                 <dependency>
@@ -987,9 +1002,6 @@
             </properties>
         </profile>
         <profile>
-            <!--
-                Profile for monitoring the application with Graphite.
-            -->
             <id>graphite</id>
             <dependencies>
                 <dependency>
@@ -999,11 +1011,6 @@
             </dependencies>
         </profile>
         <profile>
-            <!--
-                Profile for applying IDE-specific configuration.
-                At the moment it only configures MapStruct, which you need when working
-                with DTOs.
-            -->
             <id>IDE</id>
             <dependencies>
                 <dependency>
