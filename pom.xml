@@ -9,7 +9,7 @@
         <relativePath/>
     </parent>
 
-    <groupId>com.souzadriano.multitenant</groupId>
+    <groupId>com.mikado.multitenant</groupId>
     <artifactId>multitenant</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>war</packaging>
@@ -572,7 +572,7 @@
                     <defaultSchemaName>mikado_master</defaultSchemaName>
                     <username>root</username>
                     <password></password>
-                    <referenceUrl>hibernate:spring:com.souzadriano.multitenant.domain?dialect=org.hibernate.dialect.MySQL8Dialect&amp;hibernate.physical_naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy&amp;hibernate.implicit_naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy</referenceUrl>
+                    <referenceUrl>hibernate:spring:com.mikado.multitenant.domain?dialect=org.hibernate.dialect.MySQL8Dialect&amp;hibernate.physical_naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy&amp;hibernate.implicit_naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy</referenceUrl>
                     <verbose>true</verbose>
                     <logging>debug</logging>
                     <contexts>!test</contexts>

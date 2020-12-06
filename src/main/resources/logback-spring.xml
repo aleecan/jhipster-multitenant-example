@@ -22,7 +22,7 @@
     </appender>
 -->
 
-    <logger name="com.souzadriano.multitenant" level="#logback.loglevel#"/>
+    <logger name="com.mikado.multitenant" level="#logback.loglevel#"/>
 
     <logger name="io.github.jhipster" level="#logback.loglevel#"/>
 
