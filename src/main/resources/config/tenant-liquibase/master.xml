@@ -15,4 +15,5 @@
 
     <include file="config/tenant-liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
     <include file="config/tenant-liquibase/changelog/20201129212605_added_entity_AnnualLeaveGroup.xml" relativeToChangelogFile="false"/>
+    <include file="config/tenant-liquibase/changelog/20201130004536_added_entity_Category.xml" relativeToChangelogFile="false"/>
 </databaseChangeLog>
