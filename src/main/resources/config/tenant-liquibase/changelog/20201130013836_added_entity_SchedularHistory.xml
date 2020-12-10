@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+        <property name="autoIncrement" value="true"/>
+
+    <!--
+        Added the entity SchedularHistory.
+    -->
+    <changeSet id="20201130013836-1" author="jhipster">
+        <createTable tableName="schedular_history">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="start_time" type="datetime">
+                <constraints nullable="true" />
+            </column>
+            <column name="end_time" type="datetime">
+                <constraints nullable="true" />
+            </column>
+            <column name="in_manual" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="in_process" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="is_finish" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="process_no" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="process_status" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="job_schedular_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="mail_schedular_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
+        </createTable>
+        <dropDefaultValue tableName="schedular_history" columnName="start_time" columnDataType="datetime"/>
+        <dropDefaultValue tableName="schedular_history" columnName="end_time" columnDataType="datetime"/>
+    </changeSet>
+
+</databaseChangeLog>

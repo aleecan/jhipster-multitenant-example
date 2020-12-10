@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+        <property name="autoIncrement" value="true"/>
+
+    <!--
+        Added the entity Zone.
+    -->
+    <changeSet id="20201130021936-1" author="jhipster">
+        <createTable tableName="zone">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="code" type="varchar(6)">
+                <constraints nullable="false" />
+            </column>
+            <column name="description" type="varchar(80)">
+                <constraints nullable="true" />
+            </column>
+            <column name="active" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="timekeeping" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="access_status" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="external_zone" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="check_apb" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="reset_time_apb" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="employee_counter" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="external_counter" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="others_counter" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="vehicle_counter" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="visitor_counter" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="participant_counter" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="send_counter_change" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="max_stay_time_in_zone" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="max_user_in_zone" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="min_user_in_zone" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="company_firm_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="company_sub_firm_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="groupcode_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="private_code_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>

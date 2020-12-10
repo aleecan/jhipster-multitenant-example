@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity ApproverCostcenter.
+    -->
+    <changeSet id="20201130003736-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="employee_id"
+                                 baseTableName="approver_costcenter"
+                                 constraintName="fk_approver_costcenter_employee_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="employee"/>
+
+        <addForeignKeyConstraint baseColumnNames="costcenter_id"
+                                 baseTableName="approver_costcenter"
+                                 constraintName="fk_approver_costcenter_costcenter_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="costcenter"/>
+
+    </changeSet>
+</databaseChangeLog>

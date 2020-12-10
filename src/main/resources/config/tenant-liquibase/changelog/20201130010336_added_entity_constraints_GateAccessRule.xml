@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity GateAccessRule.
+    -->
+    <changeSet id="20201130010336-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="gate_id"
+                                 baseTableName="gate_access_rule"
+                                 constraintName="fk_gate_access_rule_gate_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="gate"/>
+
+        <addForeignKeyConstraint baseColumnNames="access_code_id"
+                                 baseTableName="gate_access_rule"
+                                 constraintName="fk_gate_access_rule_access_code_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="accesscode"/>
+
+        <addForeignKeyConstraint baseColumnNames="authorization_group_id"
+                                 baseTableName="gate_access_rule"
+                                 constraintName="fk_gate_access_rule_authorization_group_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="authorization_group"/>
+
+        <addForeignKeyConstraint baseColumnNames="timezone_id"
+                                 baseTableName="gate_access_rule"
+                                 constraintName="fk_gate_access_rule_timezone_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="timezone"/>
+
+    </changeSet>
+</databaseChangeLog>

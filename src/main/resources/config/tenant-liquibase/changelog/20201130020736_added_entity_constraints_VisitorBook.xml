@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity VisitorBook.
+    -->
+    <changeSet id="20201130020736-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="visitor_id"
+                                 baseTableName="visitor_book"
+                                 constraintName="fk_visitor_book_visitor_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="visitor"/>
+
+        <addForeignKeyConstraint baseColumnNames="employee_id"
+                                 baseTableName="visitor_book"
+                                 constraintName="fk_visitor_book_employee_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="employee"/>
+
+        <addForeignKeyConstraint baseColumnNames="visit_reason_id"
+                                 baseTableName="visitor_book"
+                                 constraintName="fk_visitor_book_visit_reason_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="visit_reason"/>
+
+    </changeSet>
+</databaseChangeLog>

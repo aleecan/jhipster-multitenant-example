@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity RequestOvertime.
+    -->
+    <changeSet id="20201130013736-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="employee_id"
+                                 baseTableName="request_overtime"
+                                 constraintName="fk_request_overtime_employee_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="employee"/>
+
+        <addForeignKeyConstraint baseColumnNames="overtime_reason_id"
+                                 baseTableName="request_overtime"
+                                 constraintName="fk_request_overtime_overtime_reason_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="overtime_reason"/>
+
+    </changeSet>
+</databaseChangeLog>

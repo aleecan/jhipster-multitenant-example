@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity Employee.
+    -->
+    <changeSet id="20201130005536-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="company_firm_id"
+                                 baseTableName="employee"
+                                 constraintName="fk_employee_company_firm_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="company_firm"/>
+
+        <addForeignKeyConstraint baseColumnNames="company_sub_firm_id"
+                                 baseTableName="employee"
+                                 constraintName="fk_employee_company_sub_firm_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="company_sub_firm"/>
+
+        <addForeignKeyConstraint baseColumnNames="department_id"
+                                 baseTableName="employee"
+                                 constraintName="fk_employee_department_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="department"/>
+
+        <addForeignKeyConstraint baseColumnNames="sub_department_id"
+                                 baseTableName="employee"
+                                 constraintName="fk_employee_sub_department_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="sub_department"/>
+
+        <addForeignKeyConstraint baseColumnNames="costcenter_id"
+                                 baseTableName="employee"
+                                 constraintName="fk_employee_costcenter_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="costcenter"/>
+
+        <addForeignKeyConstraint baseColumnNames="groupcode_id"
+                                 baseTableName="employee"
+                                 constraintName="fk_employee_groupcode_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="groupcode"/>
+
+        <addForeignKeyConstraint baseColumnNames="private_code_id"
+                                 baseTableName="employee"
+                                 constraintName="fk_employee_private_code_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="private_code"/>
+
+        <addForeignKeyConstraint baseColumnNames="title_id"
+                                 baseTableName="employee"
+                                 constraintName="fk_employee_title_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="title"/>
+
+        <addForeignKeyConstraint baseColumnNames="staff_id"
+                                 baseTableName="employee"
+                                 constraintName="fk_employee_staff_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="staff"/>
+
+        <addForeignKeyConstraint baseColumnNames="location_id"
+                                 baseTableName="employee"
+                                 constraintName="fk_employee_location_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="location"/>
+
+        <addForeignKeyConstraint baseColumnNames="mustering_point_id"
+                                 baseTableName="employee"
+                                 constraintName="fk_employee_mustering_point_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="mustering_point"/>
+
+        <addForeignKeyConstraint baseColumnNames="annual_leave_group_id"
+                                 baseTableName="employee"
+                                 constraintName="fk_employee_annual_leave_group_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="annual_leave_group"/>
+
+        <addForeignKeyConstraint baseColumnNames="task_id"
+                                 baseTableName="employee"
+                                 constraintName="fk_employee_task_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="task"/>
+
+        <addForeignKeyConstraint baseColumnNames="direct_manager_id"
+                                 baseTableName="employee"
+                                 constraintName="fk_employee_direct_manager_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="employee"/>
+
+        <addForeignKeyConstraint baseColumnNames="workcontract_id"
+                                 baseTableName="employee"
+                                 constraintName="fk_employee_workcontract_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="workcontract"/>
+
+        <addForeignKeyConstraint baseColumnNames="calendar_id"
+                                 baseTableName="employee"
+                                 constraintName="fk_employee_calendar_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="calendar"/>
+
+    </changeSet>
+</databaseChangeLog>

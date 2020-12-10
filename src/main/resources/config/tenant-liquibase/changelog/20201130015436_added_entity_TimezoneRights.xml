@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+        <property name="autoIncrement" value="true"/>
+
+    <!--
+        Added the entity TimezoneRights.
+    -->
+    <changeSet id="20201130015436-1" author="jhipster">
+        <createTable tableName="timezone_rights">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="timezoneright" type="varchar(96)">
+                <constraints nullable="true" />
+            </column>
+            <column name="created" type="datetime">
+                <constraints nullable="true" />
+            </column>
+            <column name="modified" type="datetime">
+                <constraints nullable="true" />
+            </column>
+            <column name="modified_user" type="varchar(80)">
+                <constraints nullable="true" />
+            </column>
+            <column name="timezone_id" type="bigint">
+                <constraints nullable="false" />
+            </column>
+            <column name="timezone_day_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
+        </createTable>
+        <dropDefaultValue tableName="timezone_rights" columnName="created" columnDataType="datetime"/>
+        <dropDefaultValue tableName="timezone_rights" columnName="modified" columnDataType="datetime"/>
+    </changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity DailyAnalysis.
+    -->
+    <changeSet id="20201130005136-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="employee_id"
+                                 baseTableName="daily_analysis"
+                                 constraintName="fk_daily_analysis_employee_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="employee"/>
+
+        <addForeignKeyConstraint baseColumnNames="schedule_id"
+                                 baseTableName="daily_analysis"
+                                 constraintName="fk_daily_analysis_schedule_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="schedule"/>
+
+        <addForeignKeyConstraint baseColumnNames="overtime_reason_id"
+                                 baseTableName="daily_analysis"
+                                 constraintName="fk_daily_analysis_overtime_reason_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="overtime_reason"/>
+
+        <addForeignKeyConstraint baseColumnNames="default_schedule_id"
+                                 baseTableName="daily_analysis"
+                                 constraintName="fk_daily_analysis_default_schedule_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="schedule"/>
+
+    </changeSet>
+</databaseChangeLog>

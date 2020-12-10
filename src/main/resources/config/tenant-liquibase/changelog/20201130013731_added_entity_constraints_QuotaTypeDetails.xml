@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity QuotaTypeDetails.
+    -->
+    <changeSet id="20201130013731-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="quota_id"
+                                 baseTableName="quota_type_details"
+                                 constraintName="fk_quota_type_details_quota_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="quota_type"/>
+
+        <addForeignKeyConstraint baseColumnNames="category_id"
+                                 baseTableName="quota_type_details"
+                                 constraintName="fk_quota_type_details_category_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="category"/>
+
+    </changeSet>
+</databaseChangeLog>

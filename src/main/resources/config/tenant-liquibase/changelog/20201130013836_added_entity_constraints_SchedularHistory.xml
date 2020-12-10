@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity SchedularHistory.
+    -->
+    <changeSet id="20201130013836-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="job_schedular_id"
+                                 baseTableName="schedular_history"
+                                 constraintName="fk_schedular_history_job_schedular_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="job_schedular"/>
+
+        <addForeignKeyConstraint baseColumnNames="mail_schedular_id"
+                                 baseTableName="schedular_history"
+                                 constraintName="fk_schedular_history_mail_schedular_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="mail_schedular"/>
+
+    </changeSet>
+</databaseChangeLog>

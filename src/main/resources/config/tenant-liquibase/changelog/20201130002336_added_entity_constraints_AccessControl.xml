@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity AccessControl.
+    -->
+    <changeSet id="20201130002336-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="terminal_id"
+                                 baseTableName="access_control"
+                                 constraintName="fk_access_control_terminal_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="terminal"/>
+
+        <addForeignKeyConstraint baseColumnNames="card_no_id"
+                                 baseTableName="access_control"
+                                 constraintName="fk_access_control_card_no_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="card"/>
+
+        <addForeignKeyConstraint baseColumnNames="access_code_id"
+                                 baseTableName="access_control"
+                                 constraintName="fk_access_control_access_code_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="accesscode"/>
+
+        <addForeignKeyConstraint baseColumnNames="employee_id"
+                                 baseTableName="access_control"
+                                 constraintName="fk_access_control_employee_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="employee"/>
+
+        <addForeignKeyConstraint baseColumnNames="visitor_book_id"
+                                 baseTableName="access_control"
+                                 constraintName="fk_access_control_visitor_book_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="visitor_book"/>
+
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity EmployeeHistory.
+    -->
+    <changeSet id="20201130005636-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="employee_id"
+                                 baseTableName="employee_history"
+                                 constraintName="fk_employee_history_employee_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="employee"/>
+
+        <addForeignKeyConstraint baseColumnNames="company_firm_id"
+                                 baseTableName="employee_history"
+                                 constraintName="fk_employee_history_company_firm_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="company_firm"/>
+
+        <addForeignKeyConstraint baseColumnNames="company_sub_firm_id"
+                                 baseTableName="employee_history"
+                                 constraintName="fk_employee_history_company_sub_firm_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="company_sub_firm"/>
+
+        <addForeignKeyConstraint baseColumnNames="department_id"
+                                 baseTableName="employee_history"
+                                 constraintName="fk_employee_history_department_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="department"/>
+
+        <addForeignKeyConstraint baseColumnNames="sub_department_id"
+                                 baseTableName="employee_history"
+                                 constraintName="fk_employee_history_sub_department_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="sub_department"/>
+
+        <addForeignKeyConstraint baseColumnNames="costcenter_id"
+                                 baseTableName="employee_history"
+                                 constraintName="fk_employee_history_costcenter_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="costcenter"/>
+
+        <addForeignKeyConstraint baseColumnNames="private_code_id"
+                                 baseTableName="employee_history"
+                                 constraintName="fk_employee_history_private_code_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="private_code"/>
+
+        <addForeignKeyConstraint baseColumnNames="title_id"
+                                 baseTableName="employee_history"
+                                 constraintName="fk_employee_history_title_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="title"/>
+
+        <addForeignKeyConstraint baseColumnNames="staff_id"
+                                 baseTableName="employee_history"
+                                 constraintName="fk_employee_history_staff_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="staff"/>
+
+        <addForeignKeyConstraint baseColumnNames="workcontract_id"
+                                 baseTableName="employee_history"
+                                 constraintName="fk_employee_history_workcontract_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="workcontract"/>
+
+    </changeSet>
+</databaseChangeLog>

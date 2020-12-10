@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity Calendar.
+    -->
+    <changeSet id="20201130004136-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="weekly_id"
+                                 baseTableName="calendar"
+                                 constraintName="fk_calendar_weekly_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="weekly_work"/>
+
+        <addForeignKeyConstraint baseColumnNames="standard_schedule_id"
+                                 baseTableName="calendar"
+                                 constraintName="fk_calendar_standard_schedule_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="schedule"/>
+
+        <addForeignKeyConstraint baseColumnNames="saturday_schedule_id"
+                                 baseTableName="calendar"
+                                 constraintName="fk_calendar_saturday_schedule_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="schedule"/>
+
+        <addForeignKeyConstraint baseColumnNames="weekend_schedule_id"
+                                 baseTableName="calendar"
+                                 constraintName="fk_calendar_weekend_schedule_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="schedule"/>
+
+        <addForeignKeyConstraint baseColumnNames="absent_schedule_id"
+                                 baseTableName="calendar"
+                                 constraintName="fk_calendar_absent_schedule_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="schedule"/>
+
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity ZoneControl.
+    -->
+    <changeSet id="20201130022136-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="card_no_id"
+                                 baseTableName="zone_control"
+                                 constraintName="fk_zone_control_card_no_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="card"/>
+
+        <addForeignKeyConstraint baseColumnNames="access_code_id"
+                                 baseTableName="zone_control"
+                                 constraintName="fk_zone_control_access_code_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="accesscode"/>
+
+        <addForeignKeyConstraint baseColumnNames="employee_id"
+                                 baseTableName="zone_control"
+                                 constraintName="fk_zone_control_employee_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="employee"/>
+
+        <addForeignKeyConstraint baseColumnNames="visitor_book_id"
+                                 baseTableName="zone_control"
+                                 constraintName="fk_zone_control_visitor_book_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="visitor_book"/>
+
+        <addForeignKeyConstraint baseColumnNames="access_id"
+                                 baseTableName="zone_control"
+                                 constraintName="fk_zone_control_access_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="access_control"/>
+
+        <addForeignKeyConstraint baseColumnNames="zone_code_id"
+                                 baseTableName="zone_control"
+                                 constraintName="fk_zone_control_zone_code_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="zone"/>
+
+    </changeSet>
+</databaseChangeLog>

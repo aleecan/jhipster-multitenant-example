@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity Card.
+    -->
+    <changeSet id="20201130004436-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="employee_id"
+                                 baseTableName="card"
+                                 constraintName="fk_card_employee_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="employee"/>
+
+        <addForeignKeyConstraint baseColumnNames="visitor_book_id"
+                                 baseTableName="card"
+                                 constraintName="fk_card_visitor_book_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="visitor_book"/>
+
+        <addForeignKeyConstraint baseColumnNames="company_firm_id"
+                                 baseTableName="card"
+                                 constraintName="fk_card_company_firm_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="company_firm"/>
+
+        <addForeignKeyConstraint baseColumnNames="company_sub_firm_id"
+                                 baseTableName="card"
+                                 constraintName="fk_card_company_sub_firm_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="company_sub_firm"/>
+
+        <addForeignKeyConstraint baseColumnNames="groupcode_id"
+                                 baseTableName="card"
+                                 constraintName="fk_card_groupcode_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="groupcode"/>
+
+        <addForeignKeyConstraint baseColumnNames="private_code_id"
+                                 baseTableName="card"
+                                 constraintName="fk_card_private_code_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="private_code"/>
+
+    </changeSet>
+</databaseChangeLog>

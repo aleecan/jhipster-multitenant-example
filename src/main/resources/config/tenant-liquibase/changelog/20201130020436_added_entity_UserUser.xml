@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+        <property name="autoIncrement" value="true"/>
+
+    <!--
+        Added the entity UserUser.
+    -->
+    <changeSet id="20201130020436-1" author="jhipster">
+        <createTable tableName="user_user">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="tenant_id" type="bigint">
+                <constraints nullable="false" />
+            </column>
+            <column name="employee_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="username" type="varchar(80)">
+                <constraints nullable="false" />
+            </column>
+            <column name="password" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="password_expiry" type="datetime">
+                <constraints nullable="true" />
+            </column>
+            <column name="email" type="varchar(40)">
+                <constraints nullable="false" />
+            </column>
+            <column name="is_active" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="filter" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="created" type="datetime">
+                <constraints nullable="true" />
+            </column>
+            <column name="modified" type="datetime">
+                <constraints nullable="true" />
+            </column>
+            <column name="modified_user_user" type="varchar(80)">
+                <constraints nullable="true" />
+            </column>
+            <column name="filter_id" type="bigint">
+                <constraints unique="true" nullable="true" uniqueConstraintName="ux_user_user_filter_id" />
+            </column>
+            <column name="profile_id" type="bigint">
+                <constraints unique="true" nullable="true" uniqueConstraintName="ux_user_user_profile_id" />
+            </column>
+            <column name="role_id" type="bigint">
+                <constraints unique="true" nullable="false" uniqueConstraintName="ux_user_user_role_id" />
+            </column>
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
+        </createTable>
+        <dropDefaultValue tableName="user_user" columnName="password_expiry" columnDataType="datetime"/>
+        <dropDefaultValue tableName="user_user" columnName="created" columnDataType="datetime"/>
+        <dropDefaultValue tableName="user_user" columnName="modified" columnDataType="datetime"/>
+    </changeSet>
+
+</databaseChangeLog>
