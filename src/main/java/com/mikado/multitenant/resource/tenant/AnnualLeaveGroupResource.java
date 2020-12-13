@@ -1,6 +1,6 @@
 package com.mikado.multitenant.resource.tenant;
 
-import com.mikado.multitenant.domain.tenant.AnnualLeaveGroup;
+import com.mikado.multitenant.domain.tenant.groups.AnnualLeaveGroup;
 import com.mikado.multitenant.service.base.ServiceResult;
 import com.mikado.multitenant.service.tenant.AnnualLeaveGroupService;
 import org.slf4j.Logger;

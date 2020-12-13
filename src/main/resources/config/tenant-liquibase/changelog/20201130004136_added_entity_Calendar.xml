@@ -115,22 +115,22 @@
             <column name="own_monthly_balance" type="boolean">
                 <constraints nullable="true" />
             </column>
-            <column name="entry_exit_process_param_id" type="bigint">
+            <column name="process_entry_exit_id" type="bigint">
                 <constraints nullable="true" />
             </column>
-            <column name="holiday_leave_process_param_id" type="bigint">
+            <column name="process_holiday_leave_id" type="bigint">
                 <constraints nullable="true" />
             </column>
-            <column name="daily_analysis_process_param_id" type="bigint">
+            <column name="process_daily_analysis_id" type="bigint">
                 <constraints nullable="true" />
             </column>
-            <column name="daily_weekly_process_param_id" type="bigint">
+            <column name="process_daily_id" type="bigint">
                 <constraints nullable="true" />
             </column>
-            <column name="monthly_process_param_id" type="bigint">
+            <column name="process_monthly_id" type="bigint">
                 <constraints nullable="true" />
             </column>
-            <column name="previous_monthly_process_param_id" type="bigint">
+            <column name="process_previous_monthly_id" type="bigint">
                 <constraints nullable="true" />
             </column>
             <column name="created" type="datetime">

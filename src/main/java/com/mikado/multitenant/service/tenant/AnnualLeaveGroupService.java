@@ -1,7 +1,7 @@
 package com.mikado.multitenant.service.tenant;
 
-import com.mikado.multitenant.domain.tenant.AnnualLeaveGroup;
-import com.mikado.multitenant.domain.tenant.QAnnualLeaveGroup;
+import com.mikado.multitenant.domain.tenant.groups.AnnualLeaveGroup;
+import com.mikado.multitenant.domain.tenant.groups.QAnnualLeaveGroup;
 import com.mikado.multitenant.repository.tenant.AnnualLeaveGroupRepository;
 import com.mikado.multitenant.service.base.ServiceResult;
 import com.querydsl.core.BooleanBuilder;

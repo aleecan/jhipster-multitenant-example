@@ -1,4 +1,4 @@
-package com.mikado.multitenant.domain.tenant;
+package com.mikado.multitenant.domain.tenant.groups;
 
 import com.mikado.multitenant.domain.base.TenantAbstractAuditingEntity;
 import lombok.Data;

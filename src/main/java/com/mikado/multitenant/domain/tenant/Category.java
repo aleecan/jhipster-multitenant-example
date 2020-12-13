@@ -6,7 +6,6 @@ import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.sql.Time;
 
 @Entity
 @Table(name = "category")
@@ -16,7 +15,7 @@ public class Category extends TenantAbstractAuditingEntity implements Serializab
 
 	private static final long serialVersionUID = -1029391000743265293L;
 
-	@Column(nullable = false, unique = true,name = "code")
+	@Column(nullable = false,name = "code")
 	private String code;
 
     @Column(name = "description")

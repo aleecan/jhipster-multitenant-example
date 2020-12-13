@@ -8,9 +8,6 @@
 
         <property name="autoIncrement" value="true"/>
 
-    <!--
-        Added the entity Employee.
-    -->
     <changeSet id="20201130005536-1" author="jhipster">
         <createTable tableName="employee">
             <column name="id" type="bigint" autoIncrement="${autoIncrement}">
@@ -163,10 +160,10 @@
             <column name="sub_department_id" type="bigint">
                 <constraints nullable="true" />
             </column>
-            <column name="costcenter_id" type="bigint">
+            <column name="cost_center_id" type="bigint">
                 <constraints nullable="true" />
             </column>
-            <column name="groupcode_id" type="bigint">
+            <column name="group_code_id" type="bigint">
                 <constraints nullable="true" />
             </column>
             <column name="private_code_id" type="bigint">
@@ -193,13 +190,12 @@
             <column name="direct_manager_id" type="bigint">
                 <constraints nullable="true" />
             </column>
-            <column name="workcontract_id" type="bigint">
+            <column name="work_contract_id" type="bigint">
                 <constraints nullable="true" />
             </column>
             <column name="calendar_id" type="bigint">
                 <constraints nullable="true" />
             </column>
-            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
         </createTable>
         <dropDefaultValue tableName="employee" columnName="start_validity" columnDataType="datetime"/>
         <dropDefaultValue tableName="employee" columnName="end_validity" columnDataType="datetime"/>

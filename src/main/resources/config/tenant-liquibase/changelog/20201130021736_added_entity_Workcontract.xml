@@ -12,7 +12,7 @@
         Added the entity Workcontract.
     -->
     <changeSet id="20201130021736-1" author="jhipster">
-        <createTable tableName="workcontract">
+        <createTable tableName="work_contract">
             <column name="id" type="bigint" autoIncrement="${autoIncrement}">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
@@ -33,8 +33,8 @@
             </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
         </createTable>
-        <dropDefaultValue tableName="workcontract" columnName="created" columnDataType="datetime"/>
-        <dropDefaultValue tableName="workcontract" columnName="modified" columnDataType="datetime"/>
+        <dropDefaultValue tableName="work_contract" columnName="created" columnDataType="datetime"/>
+        <dropDefaultValue tableName="work_contract" columnName="modified" columnDataType="datetime"/>
     </changeSet>
 
 </databaseChangeLog>
