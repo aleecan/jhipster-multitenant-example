@@ -16,7 +16,7 @@ public class RequestHelper {
 		// column = column.replaceAll("-", "");
 		// direction = Direction.DESC;
 		// }
-		return new PageRequest(pageNumber - 1, pageSize, direction, column);
+		return PageRequest.of(pageNumber - 1, pageSize, direction, column);
 	}
 
 	public static PageRequest create(int pageNumber, int pageSize, String column) {
@@ -28,16 +28,16 @@ public class RequestHelper {
 			column = column.replaceAll("-", "");
 			direction = Direction.DESC;
 		}
-		return new PageRequest(pageNumber - 1, pageSize, direction, column);
+		return PageRequest.of(pageNumber - 1, pageSize, direction, column);
 	}
 
 	public static PageRequest create(int pageNumber, int pageSize) {
-		return new PageRequest(pageNumber - 1, pageSize);
+		return PageRequest.of(pageNumber - 1, pageSize);
 	}
 
 	public static PageRequest create(int pageNumber, int pageSize, OrderSpecifier<?> os) {
 		Path<?> path = (Path<?>) os.getTarget();
-		return new PageRequest(pageNumber - 1, pageSize, os.isAscending() ? Direction.ASC : Direction.DESC,
+		return PageRequest.of(pageNumber - 1, pageSize, os.isAscending() ? Direction.ASC : Direction.DESC,
 				path.getMetadata().getName());
 	}
 

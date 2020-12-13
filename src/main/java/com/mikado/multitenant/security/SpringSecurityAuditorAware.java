@@ -5,6 +5,8 @@ import com.mikado.multitenant.config.Constants;
 import org.springframework.data.domain.AuditorAware;
 import org.springframework.stereotype.Component;
 
+import java.util.Optional;
+
 /**
  * Implementation of AuditorAware based on Spring Security.
  */
@@ -12,8 +14,8 @@ import org.springframework.stereotype.Component;
 public class SpringSecurityAuditorAware implements AuditorAware<String> {
 
     @Override
-    public String getCurrentAuditor() {
+    public Optional<String> getCurrentAuditor() {
         String userName = SecurityUtils.getCurrentUserLogin();
-        return userName != null ? userName : Constants.SYSTEM_ACCOUNT;
+        return userName != null ? Optional.of(userName) : Optional.of(Constants.SYSTEM_ACCOUNT);
     }
 }

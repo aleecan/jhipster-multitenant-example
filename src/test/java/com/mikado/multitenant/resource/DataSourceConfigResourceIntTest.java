@@ -294,7 +294,7 @@ public class DataSourceConfigResourceIntTest {
         int databaseSizeBeforeUpdate = dataSourceConfigRepository.findAll().size();
 
         // Update the dataSourceConfig
-        DataSourceConfig updatedDataSourceConfig = dataSourceConfigRepository.findOne(dataSourceConfig.getId());
+        DataSourceConfig updatedDataSourceConfig = dataSourceConfigRepository.getOne(dataSourceConfig.getId());
         updatedDataSourceConfig
             .name(UPDATED_NAME)
             .url(UPDATED_URL)

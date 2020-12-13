@@ -99,7 +99,7 @@ public class DataSourceConfigResource {
     @Timed
     public ResponseEntity<DataSourceConfig> getDataSourceConfig(@PathVariable Long id) {
         log.debug("REST request to get DataSourceConfig : {}", id);
-        DataSourceConfig dataSourceConfig = dataSourceConfigRepository.findOne(id);
+        DataSourceConfig dataSourceConfig = dataSourceConfigRepository.getOne(id);
         return ResponseUtil.wrapOrNotFound(Optional.ofNullable(dataSourceConfig));
     }
 
@@ -113,7 +113,7 @@ public class DataSourceConfigResource {
     @Timed
     public ResponseEntity<Void> deleteDataSourceConfig(@PathVariable Long id) {
         log.debug("REST request to delete DataSourceConfig : {}", id);
-        dataSourceConfigRepository.delete(id);
+        dataSourceConfigRepository.deleteById(id);
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert(ENTITY_NAME, id.toString())).build();
     }
 }
