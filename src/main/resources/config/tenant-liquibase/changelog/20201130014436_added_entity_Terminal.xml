@@ -67,7 +67,7 @@
             <column name="company_sub_firm_id" type="bigint">
                 <constraints nullable="true" />
             </column>
-            <column name="groupcode_id" type="bigint">
+            <column name="group_code_id" type="bigint">
                 <constraints nullable="true" />
             </column>
             <column name="private_code_id" type="bigint">

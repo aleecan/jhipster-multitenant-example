@@ -16,12 +16,6 @@ public class ApproverCostCenter extends TenantAbstractAuditingEntity implements 
 
 	private static final long serialVersionUID = 4738674006008424141L;
 
-    @Column(name = "employee_id")
-    private Long employeeId;
-
-    @JoinColumn(name="costcenter_id")
-    private Long costCenterId;
-
 	@Column(name = "level")
 	private Integer level;
 
@@ -30,7 +24,7 @@ public class ApproverCostCenter extends TenantAbstractAuditingEntity implements 
     private Employee employee;
 
     @ManyToOne
-    @JoinColumn(name="costcenter_id")
+    @JoinColumn(name="cost_center_id")
     private CostCenter costCenter;
 
 }

@@ -7,7 +7,7 @@
         Added the constraints for entity Terminal.
     -->
     <changeSet id="20201130014436-2" author="jhipster">
-        
+
         <addForeignKeyConstraint baseColumnNames="company_firm_id"
                                  baseTableName="terminal"
                                  constraintName="fk_terminal_company_firm_id"
@@ -20,11 +20,11 @@
                                  referencedColumnNames="id"
                                  referencedTableName="company_sub_firm"/>
 
-        <addForeignKeyConstraint baseColumnNames="groupcode_id"
+        <addForeignKeyConstraint baseColumnNames="group_code_id"
                                  baseTableName="terminal"
-                                 constraintName="fk_terminal_groupcode_id"
+                                 constraintName="fk_terminal_group_code_id"
                                  referencedColumnNames="id"
-                                 referencedTableName="groupcode"/>
+                                 referencedTableName="group_code"/>
 
         <addForeignKeyConstraint baseColumnNames="private_code_id"
                                  baseTableName="terminal"

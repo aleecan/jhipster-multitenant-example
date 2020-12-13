@@ -7,18 +7,18 @@
         Added the constraints for entity ApproverCostcenter.
     -->
     <changeSet id="20201130003736-2" author="jhipster">
-        
+
         <addForeignKeyConstraint baseColumnNames="employee_id"
-                                 baseTableName="approver_costcenter"
-                                 constraintName="fk_approver_costcenter_employee_id"
+                                 baseTableName="approver_cost_center"
+                                 constraintName="fk_approver_cost_center_employee_id"
                                  referencedColumnNames="id"
                                  referencedTableName="employee"/>
 
-        <addForeignKeyConstraint baseColumnNames="costcenter_id"
-                                 baseTableName="approver_costcenter"
-                                 constraintName="fk_approver_costcenter_costcenter_id"
+        <addForeignKeyConstraint baseColumnNames="cost_center_id"
+                                 baseTableName="approver_cost_center"
+                                 constraintName="fk_approver_cost_center_cost_center_id"
                                  referencedColumnNames="id"
-                                 referencedTableName="costcenter"/>
+                                 referencedTableName="cost_center"/>
 
     </changeSet>
 </databaseChangeLog>

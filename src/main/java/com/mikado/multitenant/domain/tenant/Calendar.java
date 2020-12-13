@@ -1,6 +1,8 @@
 package com.mikado.multitenant.domain.tenant;
 
 import com.mikado.multitenant.domain.base.TenantAbstractAuditingEntity;
+import com.mikado.multitenant.domain.tenant.process.*;
+import com.mikado.multitenant.domain.tenant.weekly.WeeklyWork;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -143,17 +145,17 @@ public class Calendar extends TenantAbstractAuditingEntity {
 
     @OneToOne(cascade = CascadeType.DETACH)
     @JoinColumn(name = "standard_schedule_id", referencedColumnName = "id")
-    private Schedule standardSchedule;
+    private WorkSchedule standardSchedule;
 
     @OneToOne(cascade = CascadeType.DETACH)
     @JoinColumn(name = "saturday_schedule_id", referencedColumnName = "id")
-    private Schedule saturdaySchedule;
+    private WorkSchedule saturdaySchedule;
 
     @OneToOne(cascade = CascadeType.DETACH)
     @JoinColumn(name = "weekend_schedule_id", referencedColumnName = "id")
-    private Schedule weekendSchedule;
+    private WorkSchedule weekendSchedule;
 
     @OneToOne(cascade = CascadeType.DETACH)
     @JoinColumn(name = "absent_schedule_id", referencedColumnName = "id")
-    private Schedule absentSchedule;
+    private WorkSchedule absentSchedule;
 }

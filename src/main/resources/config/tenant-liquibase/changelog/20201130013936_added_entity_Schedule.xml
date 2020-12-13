@@ -28,16 +28,16 @@
             <column name="color" type="varchar(10)">
                 <constraints nullable="true" />
             </column>
-            <column name="nastart" type="varchar(8)">
+            <column name="na_start" type="varchar(8)">
                 <constraints nullable="true" />
             </column>
-            <column name="nafinish" type="varchar(8)">
+            <column name="na_finish" type="varchar(8)">
                 <constraints nullable="true" />
             </column>
-            <column name="nalength" type="varchar(8)">
+            <column name="na_length" type="varchar(8)">
                 <constraints nullable="true" />
             </column>
-            <column name="nalength_max" type="varchar(8)">
+            <column name="na_length_max" type="varchar(8)">
                 <constraints nullable="true" />
             </column>
             <column name="end_of_day" type="varchar(8)">
@@ -46,10 +46,10 @@
             <column name="end_of_day_priority" type="boolean">
                 <constraints nullable="true" />
             </column>
-            <column name="flex_nastart" type="boolean">
+            <column name="na_start_flex" type="boolean">
                 <constraints nullable="true" />
             </column>
-            <column name="completena" type="boolean">
+            <column name="na_complete" type="boolean">
                 <constraints nullable="true" />
             </column>
             <column name="day_shift" type="boolean">

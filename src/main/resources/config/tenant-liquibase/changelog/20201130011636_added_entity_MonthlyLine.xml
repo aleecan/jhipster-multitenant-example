@@ -79,7 +79,7 @@
             <column name="positive_value_line_no_id" type="bigint">
                 <constraints nullable="true" />
             </column>
-            <column name="negatif_value_line_no_id" type="bigint">
+            <column name="negative_value_line_no_id" type="bigint">
                 <constraints nullable="true" />
             </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->

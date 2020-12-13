@@ -28,16 +28,16 @@
             <column name="check_late_entry_early_exit" type="boolean">
                 <constraints nullable="true" />
             </column>
-            <column name="aplly_tolerance_first_entry_last_exit" type="boolean">
+            <column name="apply_tolerance_first_entry_last_exit" type="boolean">
                 <constraints nullable="true" />
             </column>
             <column name="check_prev_and_next_day_schedule" type="boolean">
                 <constraints nullable="true" />
             </column>
-            <column name="use_prev_day_shiftgroup" type="boolean">
+            <column name="use_prev_day_shift_group" type="boolean">
                 <constraints nullable="true" />
             </column>
-            <column name="complete_work_when_mising_entry_exit" type="boolean">
+            <column name="complete_work_when_missing_entry_exit" type="boolean">
                 <constraints nullable="true" />
             </column>
             <column name="check_weekly_work_hours" type="boolean">
@@ -61,13 +61,13 @@
             <column name="apply_ratio" type="boolean">
                 <constraints nullable="true" />
             </column>
-            <column name="devide_the_no_of_worked_days" type="boolean">
+            <column name="divide_the_no_of_worked_days" type="boolean">
                 <constraints nullable="true" />
             </column>
             <column name="no_holiday_payment_in_case_of_absence" type="boolean">
                 <constraints nullable="true" />
             </column>
-            <column name="at_least_one_day_abscence" type="boolean">
+            <column name="at_least_one_day_absence" type="boolean">
                 <constraints nullable="true" />
             </column>
             <column name="transfer_extra_hours" type="boolean">

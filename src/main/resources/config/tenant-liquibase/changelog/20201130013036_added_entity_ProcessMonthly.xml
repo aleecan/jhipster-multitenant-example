@@ -9,79 +9,87 @@
         <property name="autoIncrement" value="true"/>
 
     <!--
-        Added the entity Card.
+        Added the entity ProcessDailyAnalysis.
     -->
-    <changeSet id="20201130004436-1" author="jhipster">
-        <createTable tableName="card">
+    <changeSet id="20201130013036-3" author="jhipster">
+        <createTable tableName="process_monthly">
             <column name="id" type="bigint" autoIncrement="${autoIncrement}">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="card_no" type="varchar(20)">
+            <column name="description" type="varchar(80)">
                 <constraints nullable="false" />
             </column>
-            <column name="type" type="varchar(1)">
+            <column name="date_year" type="integer">
                 <constraints nullable="true" />
             </column>
-            <column name="cancelled" type="boolean">
+            <column name="date_month" type="integer">
                 <constraints nullable="true" />
             </column>
-            <column name="issue_datetime" type="datetime">
+            <column name="select_start_end_date_of_month" type="boolean">
                 <constraints nullable="true" />
             </column>
-            <column name="expire_datetime" type="datetime">
+            <column name="start_date" type="date">
                 <constraints nullable="true" />
             </column>
-            <column name="card_code" type="varchar(20)">
+            <column name="end_date" type="date">
                 <constraints nullable="true" />
             </column>
-            <column name="pin_code" type="varchar(20)">
+            <column name="calc_wages_salary_type_as_monthly" type="boolean">
                 <constraints nullable="true" />
             </column>
-            <column name="timekeeping" type="boolean">
+            <column name="use_default_value_for_absence" type="boolean">
                 <constraints nullable="true" />
             </column>
-            <column name="biometric_enabled" type="boolean">
+            <column name="apply_percentage_for_regular_day" type="boolean">
                 <constraints nullable="true" />
             </column>
-            <column name="rd_employee" type="boolean">
+            <column name="apply_percentage_for_total_day" type="boolean">
                 <constraints nullable="true" />
             </column>
-            <column name="fingerprint" type="varchar(3200)">
+            <column name="add_hour_from_previous_month" type="boolean">
                 <constraints nullable="true" />
             </column>
-            <column name="created" type="datetime">
+            <column name="calc_salary" type="boolean">
                 <constraints nullable="true" />
             </column>
-            <column name="modified" type="datetime">
+            <column name="find_no_of_day_off_from_daily" type="boolean">
                 <constraints nullable="true" />
             </column>
-            <column name="modified_user" type="varchar(80)">
+            <column name="missing_day_type" type="integer">
                 <constraints nullable="true" />
             </column>
-            <column name="employee_id" type="bigint">
+            <column name="check_max_hour" type="boolean">
                 <constraints nullable="true" />
             </column>
-            <column name="visitor_book_id" type="bigint">
+            <column name="max_hour" type="double">
                 <constraints nullable="true" />
             </column>
-            <column name="company_firm_id" type="bigint">
+            <column name="line_for_diff_max_id" type="bigint">
                 <constraints nullable="true" />
             </column>
-            <column name="company_sub_firm_id" type="bigint">
+            <column name="complete_min_hour_after_balance" type="boolean">
                 <constraints nullable="true" />
             </column>
-            <column name="group_code_id" type="bigint">
+            <column name="line_for_diff_min_id" type="bigint">
                 <constraints nullable="true" />
             </column>
-            <column name="private_code_id" type="bigint">
+            <column name="check_ss_day_against_31_day" type="boolean">
                 <constraints nullable="true" />
             </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
         </createTable>
-        <dropDefaultValue tableName="card" columnName="issue_datetime" columnDataType="datetime"/>
-        <dropDefaultValue tableName="card" columnName="expire_datetime" columnDataType="datetime"/>
-        <dropDefaultValue tableName="card" columnName="created" columnDataType="datetime"/>
-        <dropDefaultValue tableName="card" columnName="modified" columnDataType="datetime"/>
+
+        <addForeignKeyConstraint baseTableName="process_monthly"
+                                 baseColumnNames="line_for_diff_max_id"
+                                 constraintName="fk_process_monthly_max_monthly_id"
+                                 referencedTableName="monthly_line"
+                                 referencedColumnNames="id"/>
+
+        <addForeignKeyConstraint baseTableName="process_monthly"
+                                 baseColumnNames="line_for_diff_min_id"
+                                 constraintName="fk_process_monthly_min_monthly_id"
+                                 referencedTableName="monthly_line"
+                                 referencedColumnNames="id"/>
     </changeSet>
 
 </databaseChangeLog>

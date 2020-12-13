@@ -7,7 +7,7 @@
         Added the constraints for entity MonthlyLine.
     -->
     <changeSet id="20201130011636-2" author="jhipster">
-        
+
         <addForeignKeyConstraint baseColumnNames="complete_line_no_id"
                                  baseTableName="monthly_line"
                                  constraintName="fk_monthly_line_complete_line_no_id"
@@ -26,9 +26,9 @@
                                  referencedColumnNames="id"
                                  referencedTableName="monthly_line"/>
 
-        <addForeignKeyConstraint baseColumnNames="negatif_value_line_no_id"
+        <addForeignKeyConstraint baseColumnNames="negative_value_line_no_id"
                                  baseTableName="monthly_line"
-                                 constraintName="fk_monthly_line_negatif_value_line_no_id"
+                                 constraintName="fk_monthly_line_negative_value_line_no_id"
                                  referencedColumnNames="id"
                                  referencedTableName="monthly_line"/>
 

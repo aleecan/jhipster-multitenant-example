@@ -7,12 +7,12 @@
         Added the constraints for entity WorkcontractPeriod.
     -->
     <changeSet id="20201130021836-2" author="jhipster">
-        
-        <addForeignKeyConstraint baseColumnNames="workcontract_id"
-                                 baseTableName="workcontract_period"
-                                 constraintName="fk_workcontract_period_workcontract_id"
+
+        <addForeignKeyConstraint baseColumnNames="work_contract_id"
+                                 baseTableName="work_contract_period"
+                                 constraintName="fk_work_contract_period_work_contract_id"
                                  referencedColumnNames="id"
-                                 referencedTableName="workcontract"/>
+                                 referencedTableName="work_contract"/>
 
     </changeSet>
 </databaseChangeLog>

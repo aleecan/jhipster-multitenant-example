@@ -7,7 +7,7 @@
         Added the constraints for entity Employee.
     -->
     <changeSet id="20201130005536-2" author="jhipster">
-        
+
         <addForeignKeyConstraint baseColumnNames="company_firm_id"
                                  baseTableName="employee"
                                  constraintName="fk_employee_company_firm_id"
@@ -32,17 +32,17 @@
                                  referencedColumnNames="id"
                                  referencedTableName="sub_department"/>
 
-        <addForeignKeyConstraint baseColumnNames="costcenter_id"
+        <addForeignKeyConstraint baseColumnNames="cost_center_id"
                                  baseTableName="employee"
-                                 constraintName="fk_employee_costcenter_id"
+                                 constraintName="fk_employee_cost_center_id"
                                  referencedColumnNames="id"
-                                 referencedTableName="costcenter"/>
+                                 referencedTableName="cost_center"/>
 
-        <addForeignKeyConstraint baseColumnNames="groupcode_id"
+        <addForeignKeyConstraint baseColumnNames="group_code_id"
                                  baseTableName="employee"
-                                 constraintName="fk_employee_groupcode_id"
+                                 constraintName="fk_employee_group_code_id"
                                  referencedColumnNames="id"
-                                 referencedTableName="groupcode"/>
+                                 referencedTableName="group_code"/>
 
         <addForeignKeyConstraint baseColumnNames="private_code_id"
                                  baseTableName="employee"
@@ -92,11 +92,11 @@
                                  referencedColumnNames="id"
                                  referencedTableName="employee"/>
 
-        <addForeignKeyConstraint baseColumnNames="workcontract_id"
+        <addForeignKeyConstraint baseColumnNames="work_contract_id"
                                  baseTableName="employee"
-                                 constraintName="fk_employee_workcontract_id"
+                                 constraintName="fk_employee_work_contract_id"
                                  referencedColumnNames="id"
-                                 referencedTableName="workcontract"/>
+                                 referencedTableName="work_contract"/>
 
         <addForeignKeyConstraint baseColumnNames="calendar_id"
                                  baseTableName="employee"

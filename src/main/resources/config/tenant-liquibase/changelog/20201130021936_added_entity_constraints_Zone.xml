@@ -7,7 +7,7 @@
         Added the constraints for entity Zone.
     -->
     <changeSet id="20201130021936-2" author="jhipster">
-        
+
         <addForeignKeyConstraint baseColumnNames="company_firm_id"
                                  baseTableName="zone"
                                  constraintName="fk_zone_company_firm_id"
@@ -20,11 +20,11 @@
                                  referencedColumnNames="id"
                                  referencedTableName="company_sub_firm"/>
 
-        <addForeignKeyConstraint baseColumnNames="groupcode_id"
+        <addForeignKeyConstraint baseColumnNames="group_code_id"
                                  baseTableName="zone"
-                                 constraintName="fk_zone_groupcode_id"
+                                 constraintName="fk_zone_group_code_id"
                                  referencedColumnNames="id"
-                                 referencedTableName="groupcode"/>
+                                 referencedTableName="group_code"/>
 
         <addForeignKeyConstraint baseColumnNames="private_code_id"
                                  baseTableName="zone"

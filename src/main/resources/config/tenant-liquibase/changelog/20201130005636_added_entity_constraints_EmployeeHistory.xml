@@ -7,7 +7,7 @@
         Added the constraints for entity EmployeeHistory.
     -->
     <changeSet id="20201130005636-2" author="jhipster">
-        
+
         <addForeignKeyConstraint baseColumnNames="employee_id"
                                  baseTableName="employee_history"
                                  constraintName="fk_employee_history_employee_id"
@@ -38,11 +38,11 @@
                                  referencedColumnNames="id"
                                  referencedTableName="sub_department"/>
 
-        <addForeignKeyConstraint baseColumnNames="costcenter_id"
+        <addForeignKeyConstraint baseColumnNames="cost_center_id"
                                  baseTableName="employee_history"
-                                 constraintName="fk_employee_history_costcenter_id"
+                                 constraintName="fk_employee_history_cost_center_id"
                                  referencedColumnNames="id"
-                                 referencedTableName="costcenter"/>
+                                 referencedTableName="cost_center"/>
 
         <addForeignKeyConstraint baseColumnNames="private_code_id"
                                  baseTableName="employee_history"
@@ -62,11 +62,11 @@
                                  referencedColumnNames="id"
                                  referencedTableName="staff"/>
 
-        <addForeignKeyConstraint baseColumnNames="workcontract_id"
+        <addForeignKeyConstraint baseColumnNames="work_contract_id"
                                  baseTableName="employee_history"
-                                 constraintName="fk_employee_history_workcontract_id"
+                                 constraintName="fk_employee_history_work_contract_id"
                                  referencedColumnNames="id"
-                                 referencedTableName="workcontract"/>
+                                 referencedTableName="work_contract"/>
 
     </changeSet>
 </databaseChangeLog>

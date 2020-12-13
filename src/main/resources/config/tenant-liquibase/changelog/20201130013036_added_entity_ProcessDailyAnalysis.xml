@@ -31,19 +31,19 @@
             <column name="check_late_entry_early_exit" type="boolean">
                 <constraints nullable="true" />
             </column>
-            <column name="aplly_tolerance_first_entry_last_exit" type="boolean">
+            <column name="apply_tolerance_first_entry_last_exit" type="boolean">
                 <constraints nullable="true" />
             </column>
             <column name="check_prev_and_next_day_schedule" type="boolean">
                 <constraints nullable="true" />
             </column>
-            <column name="use_prev_day_shiftgroup" type="boolean">
+            <column name="use_prev_day_shift_group" type="boolean">
                 <constraints nullable="true" />
             </column>
             <column name="use_first_entry_last_exit" type="boolean">
                 <constraints nullable="true" />
             </column>
-            <column name="complete_work_when_mising_entry_exit" type="boolean">
+            <column name="complete_work_when_missing_entry_exit" type="boolean">
                 <constraints nullable="true" />
             </column>
             <column name="created" type="datetime">
