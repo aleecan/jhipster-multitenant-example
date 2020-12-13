@@ -134,6 +134,10 @@
     <include file="config/tenant-liquibase/changelog/20201130022036_added_entity_ZoneAccessRule.xml" relativeToChangelogFile="false"/>
     <include file="config/tenant-liquibase/changelog/20201130022136_added_entity_ZoneControl.xml" relativeToChangelogFile="false"/>
     <include file="config/tenant-liquibase/changelog/20201130022236_added_entity_ZoneGate.xml" relativeToChangelogFile="false"/>
+    <include file="config/tenant-liquibase/changelog/20201130014436_added_entity_Country.xml" relativeToChangelogFile="false"/>
+    <include file="config/tenant-liquibase/changelog/20201130013036_added_entity_ProcessHolidayLeave.xml" relativeToChangelogFile="false"/>
+    <include file="config/tenant-liquibase/changelog/20201130013036_added_entity_ProcessMonthly.xml" relativeToChangelogFile="false"/>
+    <include file="config/tenant-liquibase/changelog/20201130013036_added_entity_ProcessPreviousMonthly.xml" relativeToChangelogFile="false"/>
     <include file="config/tenant-liquibase/changelog/20201130005431_added_entity_constraints_DailyDetails.xml" relativeToChangelogFile="false"/>
     <include file="config/tenant-liquibase/changelog/20201130010231_added_entity_constraints_EntryExitDetails.xml" relativeToChangelogFile="false"/>
     <include file="config/tenant-liquibase/changelog/20201130011731_added_entity_constraints_MonthlyDetails.xml" relativeToChangelogFile="false"/>
@@ -157,10 +161,6 @@
     <include file="config/tenant-liquibase/changelog/20201130003836_added_entity_constraints_ApproverDepartment.xml" relativeToChangelogFile="false"/>
     <include file="config/tenant-liquibase/changelog/20201130003936_added_entity_constraints_Authorization.xml" relativeToChangelogFile="false"/>
     <include file="config/tenant-liquibase/changelog/20201130004136_added_entity_Calendar.xml" relativeToChangelogFile="false"/>
-    <include file="config/tenant-liquibase/changelog/20201130014436_added_entity_Country.xml" relativeToChangelogFile="false"/>
-    <include file="config/tenant-liquibase/changelog/20201130013036_added_entity_ProcessHolidayLeave.xml" relativeToChangelogFile="false"/>
-    <include file="config/tenant-liquibase/changelog/20201130013036_added_entity_ProcessMonthly.xml" relativeToChangelogFile="false"/>
-    <include file="config/tenant-liquibase/changelog/20201130013036_added_entity_ProcessPreviousMonthly.xml" relativeToChangelogFile="false"/>
     <include file="config/tenant-liquibase/changelog/20201130004136_added_entity_constraints_Calendar.xml" relativeToChangelogFile="false"/>
     <include file="config/tenant-liquibase/changelog/20201130004236_added_entity_constraints_CalendarHoliday.xml" relativeToChangelogFile="false"/>
     <include file="config/tenant-liquibase/changelog/20201130004336_added_entity_constraints_CalendarPeriod.xml" relativeToChangelogFile="false"/>
