@@ -104,5 +104,10 @@
                                  referencedColumnNames="id"
                                  referencedTableName="calendar"/>
 
+        <addForeignKeyConstraint baseTableName="employee"
+                                 baseColumnNames="country_id"
+                                 constraintName="fk_employee_country_id"
+                                 referencedTableName="country"
+                                 referencedColumnNames="id"/>
     </changeSet>
 </databaseChangeLog>
