@@ -2,7 +2,6 @@ package com.mikado.multitenant.service.dto;
 
 import com.mikado.multitenant.config.Constants;
 
-import com.mikado.multitenant.domain.Authority;
 import com.mikado.multitenant.domain.User;
 
 import org.hibernate.validator.constraints.Email;

@@ -1,0 +1,11 @@
+id;description;date_year;date_month;select_start_end_date_of_month;start_date;end_date;calc_wages_salary_type_as_monthly;use_default_value_for_absence;apply_percentage_for_regularday;apply_percentage_for_totalday;add_hour_from_previous_month;calc_salary;find_no_of_day_off_from_daily;missing_day_type;check_max_hour;max_hour;complete_min_hour_after_balance;check_ss_day_against_31_day
+1;Facilitator leading-edge Missouri;55469;50502;true;2020-12-13;2020-12-13;false;false;true;true;false;true;false;43031;false;62727;true;true
+2;Street holistic Handmade Metal Pizza;81546;74006;false;2020-12-13;2020-12-13;true;true;false;true;false;false;true;91275;false;56103;true;true
+3;District;44255;9480;true;2020-12-13;2020-12-13;true;true;false;false;true;true;false;52327;true;63104;true;true
+4;web-enabled impactful;63283;23967;true;2020-12-13;2020-12-13;true;true;true;false;false;false;false;82100;false;52541;false;true
+5;customized;57570;16980;false;2020-12-13;2020-12-13;false;true;false;false;true;false;false;47551;true;53717;false;false
+6;array Hat Investor;31026;58908;true;2020-12-13;2020-12-13;false;true;true;true;false;true;true;56765;false;10572;true;false
+7;systems;63627;32690;true;2020-12-13;2020-12-13;true;true;true;true;false;false;true;37168;false;27736;true;false
+8;Avon Granite;17639;18733;true;2020-12-13;2020-12-13;false;true;false;false;true;true;true;86622;false;3519;true;false
+9;leverage Dynamic incentivize;30089;54622;false;2020-12-13;2020-12-13;true;false;true;false;false;true;true;77575;false;277;false;true
+10;withdrawal process improvement knowledge base;69105;63706;true;2020-12-13;2020-12-12;true;false;false;true;false;true;false;21932;true;32314;false;false

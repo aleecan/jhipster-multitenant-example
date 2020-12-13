@@ -1,62 +1,84 @@
 package com.mikado.multitenant.service.tenant;
 
-import com.mikado.multitenant.domain.tenant.groups.AnnualLeaveGroup;
-import com.mikado.multitenant.domain.tenant.groups.QAnnualLeaveGroup;
+import com.mikado.multitenant.domain.tenant.AnnualLeaveGroup;
 import com.mikado.multitenant.repository.tenant.AnnualLeaveGroupRepository;
-import com.mikado.multitenant.service.base.ServiceResult;
-import com.querydsl.core.BooleanBuilder;
+import com.mikado.multitenant.service.dto.tenant.AnnualLeaveGroupDTO;
+import com.mikado.multitenant.service.mapper.tenant.AnnualLeaveGroupMapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
+import java.util.Optional;
 
+/**
+ * Service Implementation for managing {@link AnnualLeaveGroup}.
+ */
 @Service
+@Transactional
 public class AnnualLeaveGroupService {
 
-    private AnnualLeaveGroupRepository annualLeaveGroupRepository;
+    private final Logger log = LoggerFactory.getLogger(AnnualLeaveGroupService.class);
 
-    public AnnualLeaveGroupService(AnnualLeaveGroupRepository annualLeaveGroupRepository) {
+    private final AnnualLeaveGroupRepository annualLeaveGroupRepository;
+
+    private final AnnualLeaveGroupMapper annualLeaveGroupMapper;
+
+    public AnnualLeaveGroupService(AnnualLeaveGroupRepository annualLeaveGroupRepository, AnnualLeaveGroupMapper annualLeaveGroupMapper) {
         this.annualLeaveGroupRepository = annualLeaveGroupRepository;
+        this.annualLeaveGroupMapper = annualLeaveGroupMapper;
     }
 
-    public AnnualLeaveGroup findById(Long id) {
-        return annualLeaveGroupRepository.findOne(id);
-    }
-
-    public ServiceResult<AnnualLeaveGroup> save(AnnualLeaveGroup annualLeaveGroup) {
-        ServiceResult<AnnualLeaveGroup> serviceResult = new ServiceResult<>();
+    /**
+     * Save a annualLeaveGroup.
+     *
+     * @param annualLeaveGroupDTO the entity to save.
+     * @return the persisted entity.
+     */
+    public AnnualLeaveGroupDTO save(AnnualLeaveGroupDTO annualLeaveGroupDTO) {
+        log.debug("Request to save AnnualLeaveGroup : {}", annualLeaveGroupDTO);
+        AnnualLeaveGroup annualLeaveGroup = annualLeaveGroupMapper.toEntity(annualLeaveGroupDTO);
         annualLeaveGroup = annualLeaveGroupRepository.save(annualLeaveGroup);
-        serviceResult.setData(annualLeaveGroup);
-        return serviceResult;
+        return annualLeaveGroupMapper.toDto(annualLeaveGroup);
     }
 
-    public Page<AnnualLeaveGroup> findAll(BooleanBuilder booleanBuilder, PageRequest pageRequest) {
-        Page<AnnualLeaveGroup> page = null;
-        if (booleanBuilder != null) {
-            page = annualLeaveGroupRepository.findAll(booleanBuilder, pageRequest);
-        } else {
-            page = annualLeaveGroupRepository.findAll(pageRequest);
-        }
-        return page;
+    /**
+     * Get all the annualLeaveGroups.
+     *
+     * @param pageable the pagination information.
+     * @return the list of entities.
+     */
+    @Transactional(readOnly = true)
+    public Page<AnnualLeaveGroupDTO> findAll(Pageable pageable) {
+        log.debug("Request to get all AnnualLeaveGroups");
+        return annualLeaveGroupRepository.findAll(pageable)
+            .map(annualLeaveGroupMapper::toDto);
     }
 
-    public Page<AnnualLeaveGroup> findAll(PageRequest pageRequest) {
-        return findAll(null, pageRequest);
+
+    /**
+     * Get one annualLeaveGroup by id.
+     *
+     * @param id the id of the entity.
+     * @return the entity.
+     */
+    @Transactional(readOnly = true)
+    public Optional<AnnualLeaveGroupDTO> findOne(Long id) {
+        log.debug("Request to get AnnualLeaveGroup : {}", id);
+        return annualLeaveGroupRepository.findById(id)
+            .map(annualLeaveGroupMapper::toDto);
     }
 
-    public void delete(AnnualLeaveGroup annualLeaveGroup) {
-        annualLeaveGroupRepository.delete(annualLeaveGroup);
-
-    }
-
-    public ServiceResult<List<AnnualLeaveGroup>> findAll() {
-        ServiceResult<List<AnnualLeaveGroup>> serviceResult = new ServiceResult();
-        serviceResult.setData(annualLeaveGroupRepository.findAll());
-        return serviceResult;
-    }
-
-    public AnnualLeaveGroup findByCode(String code) {
-        return annualLeaveGroupRepository.findOne(QAnnualLeaveGroup.annualLeaveGroup.code.eq(Integer.parseInt(code)));
+    /**
+     * Delete the annualLeaveGroup by id.
+     *
+     * @param id the id of the entity.
+     */
+    public void delete(Long id) {
+        log.debug("Request to delete AnnualLeaveGroup : {}", id);
+        annualLeaveGroupRepository.deleteById(id);
     }
 }

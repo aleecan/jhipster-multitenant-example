@@ -1,7 +1,6 @@
 package com.mikado.multitenant.repository;
 
 import com.mikado.multitenant.domain.Authority;
-
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**

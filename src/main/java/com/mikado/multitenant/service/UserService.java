@@ -1,13 +1,13 @@
 package com.mikado.multitenant.service;
 
 import com.mikado.multitenant.config.Constants;
+import com.mikado.multitenant.domain.Authority;
 import com.mikado.multitenant.repository.AuthorityRepository;
 import com.mikado.multitenant.repository.UserRepository;
 import com.mikado.multitenant.security.AuthoritiesConstants;
 import com.mikado.multitenant.security.SecurityUtils;
 import com.mikado.multitenant.service.dto.UserDTO;
 import com.mikado.multitenant.service.util.RandomUtil;
-import com.mikado.multitenant.domain.Authority;
 import com.mikado.multitenant.domain.User;
 
 import org.slf4j.Logger;

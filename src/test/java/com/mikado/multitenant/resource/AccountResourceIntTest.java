@@ -1,12 +1,12 @@
 package com.mikado.multitenant.resource;
 
+import com.mikado.multitenant.domain.Authority;
 import com.mikado.multitenant.repository.AuthorityRepository;
 import com.mikado.multitenant.repository.UserRepository;
 import com.mikado.multitenant.security.AuthoritiesConstants;
 import com.mikado.multitenant.service.MailService;
 import com.mikado.multitenant.service.dto.UserDTO;
 import com.mikado.multitenant.MultitenantApp;
-import com.mikado.multitenant.domain.Authority;
 import com.mikado.multitenant.domain.User;
 import com.mikado.multitenant.service.UserService;
 import com.mikado.multitenant.resource.vm.KeyAndPasswordVM;

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity AccessRangeVisitor.
+    -->
+    <changeSet id="20201213183104-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="visitor_book_id"
+                                 baseTableName="access_range_visitor"
+                                 constraintName="fk_access_range_visitor_visitor_book_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="visitor_book"/>
+
+    </changeSet>
+</databaseChangeLog>

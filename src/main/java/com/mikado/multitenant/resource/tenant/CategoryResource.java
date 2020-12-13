@@ -1,170 +1,125 @@
 package com.mikado.multitenant.resource.tenant;
 
-import com.mikado.multitenant.domain.tenant.Category;
-import com.mikado.multitenant.domain.tenant.QCategory;
-import com.mikado.multitenant.resource.util.PageHelper;
-import com.mikado.multitenant.resource.util.PaginationUtil;
-import com.mikado.multitenant.resource.util.ResponseDTO;
-import com.mikado.multitenant.resource.util.SearchFilterHelper;
 import com.mikado.multitenant.service.tenant.CategoryService;
-import com.querydsl.core.BooleanBuilder;
+import com.mikado.multitenant.resource.errors.BadRequestAlertException;
+import com.mikado.multitenant.service.dto.tenant.CategoryDTO;
+
+import io.github.jhipster.web.util.HeaderUtil;
+import io.github.jhipster.web.util.PaginationUtil;
+import io.github.jhipster.web.util.ResponseUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.http.MediaType;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpHeaders;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.List;
+import java.util.Optional;
 
+/**
+ * REST controller for managing {@link com.mikado.multitenant.domain.tenant.Category}.
+ */
 @RestController
 @RequestMapping("/api")
 public class CategoryResource {
 
-    private CategoryService categoriesService;
+    private final Logger log = LoggerFactory.getLogger(CategoryResource.class);
 
-	/*@Autowired
-	private CategoriesMapper categoriesMapper;
-	@Autowired
-	private LanguageMessageService languageMessageService;*/
+    private static final String ENTITY_NAME = "category";
+
+    @Value("${jhipster.clientApp.name}")
+    private String applicationName;
+
+    private final CategoryService categoryService;
 
     public CategoryResource(CategoryService categoryService) {
-        this.categoriesService = categoryService;
+        this.categoryService = categoryService;
     }
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(CategoryResource.class);
-
-	/*@PostMapping(path = "/addcategories", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public ResponseEntity<ResponseDTO> addCategories(@RequestBody CategoriesDTO categoriesDTO) {
-		HttpStatus status = HttpStatus.OK;
-		boolean error = false;
-		String message = languageMessageService.getMessage(MultiLanguageKey.SUCCESS);
-		try {
-
-			if (categoriesDTO.getId() == null) {
-				if (!categoriesService.findByCode(categoriesDTO.getCode()).isPresent()) {
-					categoriesService.save(categoriesMapper.dtoToEntity(categoriesDTO));
-					LOGGER.info("Categories Saved Successfully");
-				} else {
-					error = true;
-					message = languageMessageService.getMessage(MultiLanguageKey.CODE_ALREADY_EXIST)
-							.replace(MultiLanguageKey.NAME_TARGET, "categories");
-				}
-
-			} else {
-				error = true;
-				message = languageMessageService.getMessage(MultiLanguageKey.ONLY_NEW_OBJECT_ALLOWED)
-						.replace(MultiLanguageKey.NAME_TARGET, "categories");
-			}
-		} catch (Exception e) {
-			LOGGER.error("CategoriesController :: addcategories == ", e);
-			error = true;
-			message = e.getMessage();
-			status = HttpStatus.INTERNAL_SERVER_ERROR;
-		}
-		return new ResponseEntity<>(new ResponseDTO(error, message), status);
-	}
-
-	@PutMapping(path = "/updatecategories", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<ResponseDTO> updateCategories(@RequestBody CategoriesDTO categoriesDTO) {
-		HttpStatus status = HttpStatus.OK;
-		boolean error = false;
-		String message = languageMessageService.getMessage(MultiLanguageKey.SUCCESS);
-		try {
-			Optional<Categories> categoriesOptional = null;
-			if (categoriesDTO.getId() != null
-					&& (categoriesOptional = categoriesService.findById(categoriesDTO.getId())).isPresent()) {
-				Categories categories = categoriesOptional.get();
-				categories.setDescription(categoriesDTO.getDescription());
-				categories.setAbbreviation(categoriesDTO.getAbbreviation());
-				categories.setColor(categoriesDTO.getColor());
-				categories.setShiftTime(categoriesDTO.getShiftTime());
-				categories.setShiftMultiplier(categoriesDTO.getShiftMultiplier());
-				categories.setDayShiftMultiplier(categoriesDTO.getDayShiftMultiplier());
-				categories.setShiftLimitLow(categoriesDTO.getShiftLimitLow());
-				categories.setShiftLimitUp(categoriesDTO.getShiftLimitUp());
-				categories.setDayShiftLimitLow(categoriesDTO.getDayShiftLimitLow());
-				categories.setDayShiftLimitUp(categoriesDTO.getDayShiftLimitUp());
-				categories.setDayRounding(categoriesDTO.getDayRounding());
-				categories.setAddingTime(categoriesDTO.getAddingTime());
-				categories.setRoundingGap(categoriesDTO.getRoundingGap());
-				categories.setTimeRounding(categoriesDTO.getTimeRounding());
-				categories.setMonthRounding(categoriesDTO.getMonthRounding());
-				categories.setNormalWorkingGroup(categoriesDTO.getNormalWorkingGroup());
-				categories.setOverworkGroup(categoriesDTO.getOverworkGroup());
-				categories.setOvertimeApproval(categoriesDTO.getOvertimeApproval());
-			//	categories.setChangeWeeklyPayroll(categoriesDTO.getChangeWeeklyPayroll);
-				categories.setCustomTasks(categoriesDTO.getCustomTasks());
-				categories.setAddTasks(categoriesDTO.getAddTasks());
-				categories.setHourlyExcuse(categoriesDTO.getHourlyExcuse());
-				categories.setCtypeGroup(categoriesDTO.getCtypeGroup());
-				categoriesService.save(categories);
-				LOGGER.info("Categories Updated Successfully");
-			} else {
-				error = true;
-				message = languageMessageService.getMessage(MultiLanguageKey.NOT_FOUND_BY_NAME)
-						.replace(MultiLanguageKey.NAME_TARGET, "categories");
-			}
-		} catch (Exception e) {
-			LOGGER.error("CategoriesController :: updatecategories == ", e);
-			error = true;
-			message = e.getMessage();
-			status = HttpStatus.INTERNAL_SERVER_ERROR;
-		}
-		return new ResponseEntity<>(new ResponseDTO(error, message), status);
-	}
-
-
-    @DeleteMapping(path = "/delete/{id}")
-    public ResponseEntity<ResponseDTO> deleteCategories(@PathVariable Long id) {
-        HttpStatus status = HttpStatus.OK;
-        boolean error = false;
-        String message = languageMessageService.getMessage(MultiLanguageKey.SUCCESS);
-        try {
-            Optional<Categories> optional = categoriesService.findById(id);
-            if (optional.isPresent()) {
-                categoriesService.delete(optional.get());
-                LOGGER.info("Categories Deleted Successfully");
-            } else {
-                error = true;
-                message = languageMessageService.getMessage(MultiLanguageKey.NOT_FOUND_BY_NAME)
-                    .replace(MultiLanguageKey.NAME_TARGET, "categories");
-            }
-        } catch (DataIntegrityViolationException e) {
-            LOGGER.error("CategoriesController :: delete ---> Constraint violation (foreign key )");
-            error = true;
-            message = languageMessageService.getMessage(MultiLanguageKey.FOREIGN_KEY_CONTRAINTS)
-                .replace(MultiLanguageKey.NAME_TARGET, "Categories");
-            status = HttpStatus.INTERNAL_SERVER_ERROR;
-        } catch (Exception e) {
-            LOGGER.error("CategoriesController :: deletecategories == ", e);
-            error = true;
-            message = e.getMessage();
-            status = HttpStatus.INTERNAL_SERVER_ERROR;
+    /**
+     * {@code POST  /categories} : Create a new category.
+     *
+     * @param categoryDTO the categoryDTO to create.
+     * @return the {@link ResponseEntity} with status {@code 201 (Created)} and with body the new categoryDTO, or with status {@code 400 (Bad Request)} if the category has already an ID.
+     * @throws URISyntaxException if the Location URI syntax is incorrect.
+     */
+    @PostMapping("/categories")
+    public ResponseEntity<CategoryDTO> createCategory(@Valid @RequestBody CategoryDTO categoryDTO) throws URISyntaxException {
+        log.debug("REST request to save Category : {}", categoryDTO);
+        if (categoryDTO.getId() != null) {
+            throw new BadRequestAlertException("A new category cannot already have an ID", ENTITY_NAME, "idexists");
         }
-        return new ResponseEntity<>(new ResponseDTO(error, message), status);
-    }*/
-
-    @GetMapping(path = "/allcategories", produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<Category> listOfCategory() {
-        return categoriesService.findAll();
+        CategoryDTO result = categoryService.save(categoryDTO);
+        return ResponseEntity.created(new URI("/api/categories/" + result.getId()))
+            .headers(HeaderUtil.createEntityCreationAlert(applicationName, false, ENTITY_NAME, result.getId().toString()))
+            .body(result);
     }
 
-    @PostMapping(path = "/categories", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<ResponseDTO> listOfCategory(@RequestBody SearchFilterHelper filterHelper) {
-        QCategory qcategory = QCategory.category;
-        BooleanBuilder booleanBuilder = new BooleanBuilder();
-        // Filtering data with text.
-        String searchText = filterHelper.getSearchText();
-        if (searchText != null && !searchText.isEmpty()) {
-            booleanBuilder.and(qcategory.code.containsIgnoreCase(searchText)
-                .or(qcategory.description.containsIgnoreCase(searchText)));
+    /**
+     * {@code PUT  /categories} : Updates an existing category.
+     *
+     * @param categoryDTO the categoryDTO to update.
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the updated categoryDTO,
+     * or with status {@code 400 (Bad Request)} if the categoryDTO is not valid,
+     * or with status {@code 500 (Internal Server Error)} if the categoryDTO couldn't be updated.
+     * @throws URISyntaxException if the Location URI syntax is incorrect.
+     */
+    @PutMapping("/categories")
+    public ResponseEntity<CategoryDTO> updateCategory(@Valid @RequestBody CategoryDTO categoryDTO) throws URISyntaxException {
+        log.debug("REST request to update Category : {}", categoryDTO);
+        if (categoryDTO.getId() == null) {
+            throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");
         }
-        /*PageRequest pageRequest = new PageRequest(filterHelper.getPageNumber() - 1, filterHelper.getPageSize());
-        Page<Category> page = categoriesService.findAll(booleanBuilder, pageRequest);
-        final List<Category> pagedData = page.getContent();
-        HttpHeaders httpHeaders = PaginationUtil.generatePaginationHttpHeaders(page, "");
-        return new ResponseEntity<>(pagedData, httpHeaders, HttpStatus.OK);*/
-        return PageHelper.responseEntity(filterHelper,
-            pr -> categoriesService.findAll(booleanBuilder, pr));
+        CategoryDTO result = categoryService.save(categoryDTO);
+        return ResponseEntity.ok()
+            .headers(HeaderUtil.createEntityUpdateAlert(applicationName, false, ENTITY_NAME, categoryDTO.getId().toString()))
+            .body(result);
+    }
+
+    /**
+     * {@code GET  /categories} : get all the categories.
+     *
+     * @param pageable the pagination information.
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of categories in body.
+     */
+    @GetMapping("/categories")
+    public ResponseEntity<List<CategoryDTO>> getAllCategories(Pageable pageable) {
+        log.debug("REST request to get a page of Categories");
+        Page<CategoryDTO> page = categoryService.findAll(pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
+        return ResponseEntity.ok().headers(headers).body(page.getContent());
+    }
+
+    /**
+     * {@code GET  /categories/:id} : get the "id" category.
+     *
+     * @param id the id of the categoryDTO to retrieve.
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the categoryDTO, or with status {@code 404 (Not Found)}.
+     */
+    @GetMapping("/categories/{id}")
+    public ResponseEntity<CategoryDTO> getCategory(@PathVariable Long id) {
+        log.debug("REST request to get Category : {}", id);
+        Optional<CategoryDTO> categoryDTO = categoryService.findOne(id);
+        return ResponseUtil.wrapOrNotFound(categoryDTO);
+    }
+
+    /**
+     * {@code DELETE  /categories/:id} : delete the "id" category.
+     *
+     * @param id the id of the categoryDTO to delete.
+     * @return the {@link ResponseEntity} with status {@code 204 (NO_CONTENT)}.
+     */
+    @DeleteMapping("/categories/{id}")
+    public ResponseEntity<Void> deleteCategory(@PathVariable Long id) {
+        log.debug("REST request to delete Category : {}", id);
+        categoryService.delete(id);
+        return ResponseEntity.noContent().headers(HeaderUtil.createEntityDeletionAlert(applicationName, false, ENTITY_NAME, id.toString())).build();
     }
 }
