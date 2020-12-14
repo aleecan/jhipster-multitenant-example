@@ -2,12 +2,14 @@ package com.mikado.multitenant.config.multitenant;
 
 import java.util.Collection;
 
+import com.mikado.multitenant.config.DatabaseConfiguration;
 import com.mikado.multitenant.domain.DataSourceConfig;
 import com.mikado.multitenant.repository.DataSourceConfigRepository;
+import com.zaxxer.hikari.metrics.micrometer.MicrometerMetricsTrackerFactory;
+import io.micrometer.core.instrument.simple.SimpleMeterRegistry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceProperties;
 import org.springframework.boot.autoconfigure.liquibase.LiquibaseProperties;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.event.ContextRefreshedEvent;
@@ -28,100 +30,89 @@ import liquibase.integration.spring.SpringLiquibase;
 @Component(value = "dataSourceLookup")
 public class MultiTenantDataSourceLookup extends MapDataSourceLookup {
 
-	private static final String DEFAULT_TENANTID = "default";
-	private final Logger logger = LoggerFactory.getLogger(MultiTenantDataSourceLookup.class);
+    private static final String DEFAULT_TENANTID = "default";
+    private final Logger logger = LoggerFactory.getLogger(MultiTenantDataSourceLookup.class);
 
-	@Autowired
-	private ApplicationContext context;
+    @Autowired
+    private ApplicationContext context;
 
-	@Autowired
-	private TaskExecutor taskExecutor;
+    @Autowired
+    private TaskExecutor taskExecutor;
 
-	@Autowired
-	private LiquibaseProperties liquibaseProperties;
+    @Autowired
+    private LiquibaseProperties liquibaseProperties;
 
-	@Autowired
-	private Environment environment;
+    @Autowired
+    private Environment environment;
 
-	@Autowired
-	private ResourceLoader resourceLoader;
+    @Autowired
+    private ResourceLoader resourceLoader;
 
-	@Autowired
-	public MultiTenantDataSourceLookup(HikariDataSource defaultDataSource, ApplicationContext context) {
-		super();
-		addDataSource(DEFAULT_TENANTID, defaultDataSource);
-	}
+    private final Logger log = LoggerFactory.getLogger(DatabaseConfiguration.class);
 
-	@EventListener
-	public void handleContextRefresh(ContextRefreshedEvent event) throws LiquibaseException {
-		DataSourceConfigRepository configRepository = context.getBean(DataSourceConfigRepository.class);
-		addTenantDataSources(configRepository.findAll());
-	}
+    @Autowired
+    public MultiTenantDataSourceLookup(HikariDataSource defaultDataSource, ApplicationContext context) {
+        super();
+        addDataSource(DEFAULT_TENANTID, defaultDataSource);
+    }
 
-	void addTenantDataSources(Collection<DataSourceConfig> dataSources) throws LiquibaseException {
-		for (DataSourceConfig dataSource : dataSources) {
-			// Add new datasource with own configuration per tenant
-			HikariDataSource customDataSource = createTenantDataSource(dataSource);
-			addDataSource(dataSource.getName(), customDataSource);
-			liquibaseUpdate(customDataSource);
-			logger.info("Configured tenant: " + dataSource.getName());
-		}
-	}
+    @EventListener
+    public void handleContextRefresh(ContextRefreshedEvent event) throws LiquibaseException {
+        DataSourceConfigRepository configRepository = context.getBean(DataSourceConfigRepository.class);
+        addTenantDataSources(configRepository.findAll());
+    }
 
-	private void liquibaseUpdate(HikariDataSource customDataSource) throws LiquibaseException {
-		SpringLiquibase liquibase = new AsyncSpringLiquibase(taskExecutor, environment);
-		liquibase.setResourceLoader(resourceLoader);
-		liquibase.setDataSource(customDataSource);
-		liquibase.setChangeLog("classpath:config/tenant-liquibase/master.xml");
-		liquibase.setContexts(liquibaseProperties.getContexts());
-		liquibase.setDefaultSchema(liquibaseProperties.getDefaultSchema());
-		liquibase.setDropFirst(liquibaseProperties.isDropFirst());
-		if (environment.acceptsProfiles(JHipsterConstants.SPRING_PROFILE_NO_LIQUIBASE)) {
-			liquibase.setShouldRun(false);
-		} else {
-			liquibase.setShouldRun(liquibaseProperties.isEnabled());
-			logger.debug("Configuring Liquibase");
-		}
-		liquibase.afterPropertiesSet();
-	}
+    void addTenantDataSources(Collection<DataSourceConfig> dataSources) throws LiquibaseException {
+        for (DataSourceConfig dataSource : dataSources) {
+            // Add new datasource with own configuration per tenant
+            HikariDataSource customDataSource = createTenantDataSource(dataSource);
+            addDataSource(dataSource.getName(), customDataSource);
+            liquibaseUpdate(customDataSource);
+            logger.info("Configured tenant: " + dataSource.getName());
+        }
+    }
 
-	private HikariDataSource createTenantDataSource(DataSourceConfig dataSource) {
-		HikariDataSource customDataSource = new HikariDataSource();
-		// url, username and password must be unique per tenant so there is not
-		// default value
-		customDataSource.setJdbcUrl(dataSource.getUrl());
-		customDataSource.setUsername(dataSource.getUsername());
-		customDataSource.setPassword(dataSource.getPassword());
-		customDataSource.setIdleTimeout(3000);
-		customDataSource.setAutoCommit(true);
-		// These has default values in defaultDataSource
-		// HikariDataSource defaultDataSource = (HikariDataSource)
-		// getDataSource(DEFAULT_TENANTID);
-		// customDataSource.setDriverClassName(defaultDataSource.getDriverClassName());
+    private void liquibaseUpdate(HikariDataSource customDataSource) throws LiquibaseException {
+        SpringLiquibase liquibase = new AsyncSpringLiquibase(taskExecutor, environment);
+        liquibase.setResourceLoader(resourceLoader);
+        liquibase.setDataSource(customDataSource);
+        liquibase.setChangeLog("classpath:config/tenant-liquibase/master.xml");
+        liquibase.setContexts(liquibaseProperties.getContexts());
+        liquibase.setDefaultSchema(liquibaseProperties.getDefaultSchema());
+        liquibase.setDropFirst(liquibaseProperties.isDropFirst());
+        if (environment.acceptsProfiles(JHipsterConstants.SPRING_PROFILE_NO_LIQUIBASE)) {
+            liquibase.setShouldRun(false);
+        } else {
+            liquibase.setShouldRun(liquibaseProperties.isEnabled());
+            logger.debug("Configuring Liquibase");
+        }
+        liquibase.afterPropertiesSet();
+    }
 
-		// customDataSource.setIdleConnectionTestPeriodInMinutes(Long.valueOf(tenantProps.getProperty(
-		// "database.idleConnectionTestPeriod",String.valueOf(defaultDataSource.getIdleConnectionTestPeriodInMinutes()))));
-		// customDataSource.setIdleMaxAgeInMinutes(Long.valueOf(tenantProps.getProperty(
-		// "database.idleMaxAge",
-		// String.valueOf(defaultDataSource.getIdleMaxAgeInMinutes()))));
-		// customDataSource.setMaxConnectionsPerPartition(Integer.valueOf(tenantProps.getProperty(
-		// "database.maxConnectionsPerPartition",
-		// String.valueOf(defaultDataSource.getMaxConnectionsPerPartition()))));
-		// customDataSource.setMinConnectionsPerPartition(Integer.valueOf(tenantProps.getProperty(
-		// "database.minConnectionsPerPartition",
-		// String.valueOf(defaultDataSource.getMinConnectionsPerPartition()))));
-		// customDataSource.setPartitionCount(Integer.valueOf(tenantProps.getProperty(
-		// "database.partitionCount",
-		// String.valueOf(defaultDataSource.getPartitionCount()))));
-		// customDataSource.setAcquireIncrement(Integer.valueOf(tenantProps.getProperty(
-		// "database.acquireIncrement",
-		// String.valueOf(defaultDataSource.getAcquireIncrement()))));
-		// customDataSource.setStatementsCacheSize(Integer.valueOf(tenantProps.getProperty(
-		// "database.statementsCacheSize",String.valueOf(defaultDataSource.getStatementCacheSize()))));
-		// customDataSource.setReleaseHelperThreads(Integer.valueOf(tenantProps.getProperty(
-		// "database.releaseHelperThreads",
-		// String.valueOf(defaultDataSource.getReleaseHelperThreads()))));customDataSource.setDriverClass(tenantProps.getProperty("database.driverClassName"));
-		return customDataSource;
-	}
+    private HikariDataSource createTenantDataSource(DataSourceConfig dataSource) {
+        HikariDataSource customDataSource = new HikariDataSource();
+        customDataSource.setJdbcUrl(dataSource.getUrl());
+        customDataSource.setUsername(dataSource.getUsername());
+        customDataSource.setPassword(dataSource.getPassword());
+        customDataSource.setAutoCommit(false);
+        customDataSource.setAllowPoolSuspension(false);
+        customDataSource.setIdleTimeout(600000);
+        customDataSource.setIsolateInternalQueries(false);
+        customDataSource.setMaxLifetime(1800000);
+        customDataSource.setMaximumPoolSize(10);
+        customDataSource.setMinimumIdle(10);
+        customDataSource.setReadOnly(false);
+        customDataSource.setValidationTimeout(5000);
+        customDataSource.setInitializationFailTimeout(1);
+        customDataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
+        customDataSource.setRegisterMbeans(false);
+        customDataSource.addDataSourceProperty("prepStmtCacheSqlLimit", "2048");
+        customDataSource.addDataSourceProperty("useServerPrepStmts", "true");
+        customDataSource.addDataSourceProperty("cachePrepStmts", "true");
+        customDataSource.addDataSourceProperty("prepStmtCacheSize", "250");
+        MicrometerMetricsTrackerFactory tracker = new MicrometerMetricsTrackerFactory(new SimpleMeterRegistry());
+        customDataSource.setMetricsTrackerFactory(tracker);
+        return customDataSource;
+    }
 
 }

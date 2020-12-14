@@ -37,14 +37,10 @@ import org.springframework.orm.jpa.vendor.Database;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-import com.codahale.metrics.MetricRegistry;
 import com.mikado.multitenant.config.multitenant.CurrentTenantIdentifierResolverImpl;
 import com.mikado.multitenant.config.multitenant.MultiTenantConnectionProviderImpl;
-import com.zaxxer.hikari.HikariConfig;
-import com.zaxxer.hikari.HikariDataSource;
 
 import io.github.jhipster.config.JHipsterConstants;
-import io.github.jhipster.config.liquibase.AsyncSpringLiquibase;
 import liquibase.integration.spring.SpringLiquibase;
 
 @Configuration
@@ -68,9 +64,6 @@ public class DatabaseConfiguration {
 
     @Autowired
     ApplicationContext context;
-
-    @Autowired(required = false)
-    private MetricRegistry metricRegistry;
 
     public DatabaseConfiguration(Environment env) {
         this.env = env;
@@ -110,12 +103,9 @@ public class DatabaseConfiguration {
     @Bean
     public JpaVendorAdapter jpaVendorAdapter() {
         HibernateJpaVendorAdapter hibernateJpaVendorAdapter = new HibernateJpaVendorAdapter();
-        // Generate DDL is not supported in Hibernate to multi-tenancy features
-        // https://hibernate.atlassian.net/browse/HHH-7395
         hibernateJpaVendorAdapter.setGenerateDdl(false);
         String prefix = "spring.jpa.";
         String end = ".enabled";
-        //RelaxedPropertyResolver propertyResolver = new RelaxedPropertyResolver(env, "spring.jpa.");
         hibernateJpaVendorAdapter.setDatabase(Database.valueOf(Objects.requireNonNull(env.getProperty(prefix + "database"))));
         hibernateJpaVendorAdapter.setShowSql(Boolean.parseBoolean(env.getProperty(prefix + "show-sql")));
         hibernateJpaVendorAdapter.setDatabasePlatform(env.getProperty(prefix + "database-platform"));
