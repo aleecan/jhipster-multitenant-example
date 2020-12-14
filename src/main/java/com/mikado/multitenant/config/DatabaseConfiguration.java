@@ -116,9 +116,9 @@ public class DatabaseConfiguration {
         String prefix = "spring.jpa.";
         String end = ".enabled";
         //RelaxedPropertyResolver propertyResolver = new RelaxedPropertyResolver(env, "spring.jpa.");
-        hibernateJpaVendorAdapter.setDatabase(Database.MYSQL);
-        hibernateJpaVendorAdapter.setShowSql(true);
-        hibernateJpaVendorAdapter.setDatabasePlatform("org.hibernate.dialect.MySQL5InnoDBDialect");
+        hibernateJpaVendorAdapter.setDatabase(Database.valueOf(Objects.requireNonNull(env.getProperty(prefix + "database"))));
+        hibernateJpaVendorAdapter.setShowSql(Boolean.parseBoolean(env.getProperty(prefix + "show-sql")));
+        hibernateJpaVendorAdapter.setDatabasePlatform(env.getProperty(prefix + "database-platform"));
         return hibernateJpaVendorAdapter;
     }
 
@@ -169,10 +169,10 @@ public class DatabaseConfiguration {
         props.put("hibernate.multiTenancy", MultiTenancyStrategy.DATABASE.name());
         props.put("hibernate.multi_tenant_connection_provider", dsProvider);
         props.put("hibernate.tenant_identifier_resolver", tenantResolver);
-        props.put("hibernate.id.new_generator_mappings", env.getProperty(prefix + "hibernate.id.new_generator_mappings" + end));
-        props.put("hibernate.cache.use_second_level_cache", env.getProperty(prefix + "hibernate.cache.use_second_level_cache" + end));
-        props.put("hibernate.cache.use_query_cache", env.getProperty(prefix + "hibernate.cache.use_query_cache" + end));
-        props.put("hibernate.generate_statistics", env.getProperty(prefix + "hibernate.generate_statistics" + end));
+        props.put("hibernate.id.new_generator_mappings", env.getProperty(prefix + "hibernate.id.new_generator_mappings"));
+        props.put("hibernate.cache.use_second_level_cache", env.getProperty(prefix + "hibernate.cache.use_second_level_cache"));
+        props.put("hibernate.cache.use_query_cache", env.getProperty(prefix + "hibernate.cache.use_query_cache"));
+        props.put("hibernate.generate_statistics", env.getProperty(prefix + "hibernate.generate_statistics"));
 
         LocalContainerEntityManagerFactoryBean result = builder.dataSource(defaultDataSource)
             .persistenceUnit("default")

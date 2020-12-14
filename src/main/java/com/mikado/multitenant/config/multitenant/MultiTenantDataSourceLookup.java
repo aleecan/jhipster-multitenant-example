@@ -7,6 +7,7 @@ import com.mikado.multitenant.repository.DataSourceConfigRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceProperties;
 import org.springframework.boot.autoconfigure.liquibase.LiquibaseProperties;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.event.ContextRefreshedEvent;
@@ -91,6 +92,8 @@ public class MultiTenantDataSourceLookup extends MapDataSourceLookup {
 		customDataSource.setJdbcUrl(dataSource.getUrl());
 		customDataSource.setUsername(dataSource.getUsername());
 		customDataSource.setPassword(dataSource.getPassword());
+		customDataSource.setIdleTimeout(3000);
+		customDataSource.setAutoCommit(true);
 		// These has default values in defaultDataSource
 		// HikariDataSource defaultDataSource = (HikariDataSource)
 		// getDataSource(DEFAULT_TENANTID);
