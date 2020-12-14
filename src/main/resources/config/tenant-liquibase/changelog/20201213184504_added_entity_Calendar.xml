@@ -178,7 +178,7 @@
     -->
     <changeSet id="20201213184504-1-data" author="jhipster" context="faker">
         <loadData
-                  file="config/liquibase/fake-data/calendar.csv"
+                  file="config/tenant-liquibase/fake-data/calendar.csv"
                   separator=";"
                   tableName="calendar">
             <column name="id" type="numeric"/>

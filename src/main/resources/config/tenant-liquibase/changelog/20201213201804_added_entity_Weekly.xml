@@ -113,7 +113,7 @@
     -->
     <changeSet id="20201213201804-1-data" author="jhipster" context="faker">
         <loadData
-                  file="config/liquibase/fake-data/weekly.csv"
+                  file="config/tenant-liquibase/fake-data/weekly.csv"
                   separator=";"
                   tableName="weekly">
             <column name="id" type="numeric"/>

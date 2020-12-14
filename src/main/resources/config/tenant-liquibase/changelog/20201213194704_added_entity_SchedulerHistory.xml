@@ -64,7 +64,7 @@
     -->
     <changeSet id="20201213194704-1-data" author="jhipster" context="faker">
         <loadData
-                  file="config/liquibase/fake-data/scheduler_history.csv"
+                  file="config/tenant-liquibase/fake-data/scheduler_history.csv"
                   separator=";"
                   tableName="scheduler_history">
             <column name="id" type="numeric"/>

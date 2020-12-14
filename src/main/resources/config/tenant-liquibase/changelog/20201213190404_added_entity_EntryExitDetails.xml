@@ -163,7 +163,7 @@
     -->
     <changeSet id="20201213190404-1-data" author="jhipster" context="faker">
         <loadData
-                  file="config/liquibase/fake-data/entry_exit_details.csv"
+                  file="config/tenant-liquibase/fake-data/entry_exit_details.csv"
                   separator=";"
                   tableName="entry_exit_details">
             <column name="id" type="numeric"/>

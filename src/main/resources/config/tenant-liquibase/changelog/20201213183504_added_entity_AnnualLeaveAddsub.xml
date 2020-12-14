@@ -67,7 +67,7 @@
     -->
     <changeSet id="20201213183504-1-data" author="jhipster" context="faker">
         <loadData
-                  file="config/liquibase/fake-data/annual_leave_addsub.csv"
+                  file="config/tenant-liquibase/fake-data/annual_leave_addsub.csv"
                   separator=";"
                   tableName="annual_leave_addsub">
             <column name="id" type="numeric"/>

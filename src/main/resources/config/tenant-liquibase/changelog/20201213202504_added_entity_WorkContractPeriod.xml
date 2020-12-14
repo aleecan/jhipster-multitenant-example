@@ -181,7 +181,7 @@
     -->
     <changeSet id="20201213202504-1-data" author="jhipster" context="faker">
         <loadData
-                  file="config/liquibase/fake-data/work_contract_period.csv"
+                  file="config/tenant-liquibase/fake-data/work_contract_period.csv"
                   separator=";"
                   tableName="work_contract_period">
             <column name="id" type="numeric"/>

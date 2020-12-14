@@ -52,7 +52,7 @@
     -->
     <changeSet id="20201213202404-1-data" author="jhipster" context="faker">
         <loadData
-                  file="config/liquibase/fake-data/work_contract.csv"
+                  file="config/tenant-liquibase/fake-data/work_contract.csv"
                   separator=";"
                   tableName="work_contract">
             <column name="id" type="numeric"/>

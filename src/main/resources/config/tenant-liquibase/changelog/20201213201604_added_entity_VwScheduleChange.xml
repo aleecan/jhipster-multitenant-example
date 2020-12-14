@@ -44,7 +44,7 @@
     -->
     <changeSet id="20201213201604-1-data" author="jhipster" context="faker">
         <loadData
-                  file="config/liquibase/fake-data/vw_schedule_change.csv"
+                  file="config/tenant-liquibase/fake-data/vw_schedule_change.csv"
                   separator=";"
                   tableName="vw_schedule_change">
             <column name="id" type="numeric"/>

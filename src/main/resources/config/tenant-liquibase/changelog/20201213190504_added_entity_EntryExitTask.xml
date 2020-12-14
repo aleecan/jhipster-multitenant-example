@@ -61,7 +61,7 @@
     -->
     <changeSet id="20201213190504-1-data" author="jhipster" context="faker">
         <loadData
-                  file="config/liquibase/fake-data/entry_exit_task.csv"
+                  file="config/tenant-liquibase/fake-data/entry_exit_task.csv"
                   separator=";"
                   tableName="entry_exit_task">
             <column name="id" type="numeric"/>

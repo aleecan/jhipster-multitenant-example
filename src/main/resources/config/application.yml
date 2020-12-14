@@ -62,6 +62,8 @@ server:
 # ===================================================================
 
 jhipster:
+    clientApp:
+        name: 'Mikado'
     async:
         core-pool-size: 2
         max-pool-size: 50
@@ -87,8 +89,6 @@ jhipster:
         contact-email:
         license:
         license-url:
-    ribbon:
-        display-on-active-profiles: dev
 
 # ===================================================================
 # Application specific properties

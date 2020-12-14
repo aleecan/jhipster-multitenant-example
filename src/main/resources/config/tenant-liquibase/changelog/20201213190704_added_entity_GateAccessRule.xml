@@ -94,7 +94,7 @@
     -->
     <changeSet id="20201213190704-1-data" author="jhipster" context="faker">
         <loadData
-                  file="config/liquibase/fake-data/gate_access_rule.csv"
+                  file="config/tenant-liquibase/fake-data/gate_access_rule.csv"
                   separator=";"
                   tableName="gate_access_rule">
             <column name="id" type="numeric"/>

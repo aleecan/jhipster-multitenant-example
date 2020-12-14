@@ -106,7 +106,7 @@
     -->
     <changeSet id="20201213193304-1-data" author="jhipster" context="faker">
         <loadData
-                  file="config/liquibase/fake-data/process_daily.csv"
+                  file="config/tenant-liquibase/fake-data/process_daily.csv"
                   separator=";"
                   tableName="process_daily">
             <column name="id" type="numeric"/>

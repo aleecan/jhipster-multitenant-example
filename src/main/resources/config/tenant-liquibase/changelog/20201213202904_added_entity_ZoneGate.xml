@@ -41,7 +41,7 @@
     -->
     <changeSet id="20201213202904-1-data" author="jhipster" context="faker">
         <loadData
-                  file="config/liquibase/fake-data/zone_gate.csv"
+                  file="config/tenant-liquibase/fake-data/zone_gate.csv"
                   separator=";"
                   tableName="zone_gate">
             <column name="id" type="numeric"/>

@@ -81,7 +81,7 @@
     -->
     <changeSet id="20201213182804-1-data" author="jhipster" context="faker">
         <loadData
-                  file="config/liquibase/fake-data/access_control.csv"
+                  file="config/tenant-liquibase/fake-data/access_control.csv"
                   separator=";"
                   tableName="access_control">
             <column name="id" type="numeric"/>

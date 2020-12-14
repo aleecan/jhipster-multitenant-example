@@ -73,7 +73,7 @@
     -->
     <changeSet id="20201213193504-1-data" author="jhipster" context="faker">
         <loadData
-                  file="config/liquibase/fake-data/process_entry_exit.csv"
+                  file="config/tenant-liquibase/fake-data/process_entry_exit.csv"
                   separator=";"
                   tableName="process_entry_exit">
             <column name="id" type="numeric"/>

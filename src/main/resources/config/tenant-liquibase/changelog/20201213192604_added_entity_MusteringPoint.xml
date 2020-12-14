@@ -52,7 +52,7 @@
     -->
     <changeSet id="20201213192604-1-data" author="jhipster" context="faker">
         <loadData
-                  file="config/liquibase/fake-data/mustering_point.csv"
+                  file="config/tenant-liquibase/fake-data/mustering_point.csv"
                   separator=";"
                   tableName="mustering_point">
             <column name="id" type="numeric"/>

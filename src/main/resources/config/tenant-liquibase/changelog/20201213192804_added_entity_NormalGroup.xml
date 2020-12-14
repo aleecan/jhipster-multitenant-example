@@ -52,7 +52,7 @@
     -->
     <changeSet id="20201213192804-1-data" author="jhipster" context="faker">
         <loadData
-                  file="config/liquibase/fake-data/normal_group.csv"
+                  file="config/tenant-liquibase/fake-data/normal_group.csv"
                   separator=";"
                   tableName="normal_group">
             <column name="id" type="numeric"/>

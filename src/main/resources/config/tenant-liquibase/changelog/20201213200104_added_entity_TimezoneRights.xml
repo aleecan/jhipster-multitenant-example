@@ -55,7 +55,7 @@
     -->
     <changeSet id="20201213200104-1-data" author="jhipster" context="faker">
         <loadData
-                  file="config/liquibase/fake-data/timezone_rights.csv"
+                  file="config/tenant-liquibase/fake-data/timezone_rights.csv"
                   separator=";"
                   tableName="timezone_rights">
             <column name="id" type="numeric"/>

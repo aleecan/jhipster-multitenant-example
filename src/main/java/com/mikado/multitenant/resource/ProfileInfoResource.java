@@ -27,7 +27,7 @@ public class ProfileInfoResource {
         this.jHipsterProperties = jHipsterProperties;
     }
 
-    @GetMapping("/profile-info")
+    /*@GetMapping("/profile-info")
     public ProfileInfoVM getActiveProfiles() {
         String[] activeProfiles = DefaultProfileUtil.getActiveProfiles(env);
         return new ProfileInfoVM(activeProfiles, getRibbonEnv(activeProfiles));
@@ -45,7 +45,7 @@ public class ProfileInfoResource {
             return ribbonProfiles.get(0);
         }
         return null;
-    }
+    }*/
 
     class ProfileInfoVM {
 

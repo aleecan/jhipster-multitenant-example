@@ -76,7 +76,7 @@
     -->
     <changeSet id="20201213202804-1-data" author="jhipster" context="faker">
         <loadData
-                  file="config/liquibase/fake-data/zone_control.csv"
+                  file="config/tenant-liquibase/fake-data/zone_control.csv"
                   separator=";"
                   tableName="zone_control">
             <column name="id" type="numeric"/>

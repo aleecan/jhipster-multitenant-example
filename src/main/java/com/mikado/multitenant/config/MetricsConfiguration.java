@@ -19,8 +19,8 @@ import javax.annotation.PostConstruct;
 import java.lang.management.ManagementFactory;
 import java.util.concurrent.TimeUnit;
 
-@Configuration
-@EnableMetrics(proxyTargetClass = true)
+//@Configuration
+//@EnableMetrics(proxyTargetClass = true)
 public class MetricsConfiguration extends MetricsConfigurerAdapter {
 
     private static final String PROP_METRIC_REG_JVM_MEMORY = "jvm.memory";
@@ -70,12 +70,12 @@ public class MetricsConfiguration extends MetricsConfigurerAdapter {
         if (hikariDataSource != null) {
             log.debug("Monitoring the datasource");
             hikariDataSource.setMetricRegistry(metricRegistry);
-        }
+        }/*
         if (jHipsterProperties.getMetrics().getJmx().isEnabled()) {
             log.debug("Initializing Metrics JMX reporting");
             JmxReporter jmxReporter = JmxReporter.forRegistry(metricRegistry).build();
             jmxReporter.start();
-        }
+        }*/
         if (jHipsterProperties.getMetrics().getLogs().isEnabled()) {
             log.info("Initializing Metrics Log reporting");
             final Slf4jReporter reporter = Slf4jReporter.forRegistry(metricRegistry)

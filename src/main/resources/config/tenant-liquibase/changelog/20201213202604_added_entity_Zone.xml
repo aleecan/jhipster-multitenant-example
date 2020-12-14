@@ -101,7 +101,7 @@
     -->
     <changeSet id="20201213202604-1-data" author="jhipster" context="faker">
         <loadData
-                  file="config/liquibase/fake-data/zone.csv"
+                  file="config/tenant-liquibase/fake-data/zone.csv"
                   separator=";"
                   tableName="zone">
             <column name="id" type="numeric"/>

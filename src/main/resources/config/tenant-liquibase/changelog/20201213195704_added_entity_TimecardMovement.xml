@@ -93,7 +93,7 @@
     -->
     <changeSet id="20201213195704-1-data" author="jhipster" context="faker">
         <loadData
-                  file="config/liquibase/fake-data/timecard_movement.csv"
+                  file="config/tenant-liquibase/fake-data/timecard_movement.csv"
                   separator=";"
                   tableName="timecard_movement">
             <column name="id" type="numeric"/>

@@ -55,7 +55,7 @@
     -->
     <changeSet id="20201213192904-1-data" author="jhipster" context="faker">
         <loadData
-                  file="config/liquibase/fake-data/overtime.csv"
+                  file="config/tenant-liquibase/fake-data/overtime.csv"
                   separator=";"
                   tableName="overtime">
             <column name="id" type="numeric"/>
