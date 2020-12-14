@@ -1,0 +1,11 @@
+id;employee_id;daytime;direction;reason_id;terminal_id;overtime_approval;overtime_approval_1;overtime_approval_2;overtime_reason_id;overtime_notes;exported;rcexported;realtime;terminal_time;access_control_id
+1;55702;2020-12-13T12:02:13;92989;12092;88421;true;false;true;67196;human-resource;true;true;true;2020-12-13T16:18:19;58137
+2;535;2020-12-13T02:37:36;6570;61741;4324;true;false;true;56451;payment rich;false;false;true;2020-12-13T20:00:18;10829
+3;52932;2020-12-13T15:30:54;88355;28638;22428;true;false;true;57220;Intranet fault-tolerant;true;true;false;2020-12-13T18:22:50;95751
+4;67341;2020-12-13T00:45:53;95541;19455;91716;false;false;false;30395;wireless;false;true;true;2020-12-13T08:54:14;82223
+5;42796;2020-12-13T03:56:42;56880;6060;62942;true;false;true;70159;Intelligent Frozen Car;false;true;true;2020-12-13T19:51:33;10141
+6;82291;2020-12-12T23:49:35;31481;43402;77746;true;false;true;69530;Wooden North Korean Won;true;true;true;2020-12-13T13:53:54;64242
+7;22160;2020-12-13T03:54:18;43464;27738;92643;false;true;false;62109;South Africa California Tasty;false;false;true;2020-12-13T14:58:57;42576
+8;14524;2020-12-13T08:42:44;73328;14668;58987;false;true;false;64119;Canada Virgin Islands, U.S. Connecticut;true;false;false;2020-12-13T12:40:24;67984
+9;77560;2020-12-13T19:03:58;85453;75449;46464;false;false;false;85802;connecting Pennsylvania Hollow;true;true;false;2020-12-12T21:29:41;89244
+10;56362;2020-12-13T07:36:30;31088;61770;25738;false;false;false;80005;Incredible;false;true;false;2020-12-13T19:13:02;40765

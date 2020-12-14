@@ -1,0 +1,11 @@
+id;description;daytime;is_active;mail_subject;process_type;mail_body;all_employee;all_manager;is_firm;is_sub_firm;is_department;is_sub_department;is_cost_center;is_custom
+1;content Avon Quality;;false;calculate Soap Bedfordshire;50474;../fake-data/blob/hipster.txt;false;true;false;true;true;false;true;true
+2;THX turquoise Indonesia;;false;Cocos (Keeling) Islands;22805;../fake-data/blob/hipster.txt;false;true;false;false;false;true;false;false
+3;Refined;;false;next generation;21753;../fake-data/blob/hipster.txt;false;true;true;true;false;false;true;false
+4;Tasty Plastic Chips Club XML;;false;withdrawal Benin e-markets;76247;../fake-data/blob/hipster.txt;true;false;false;true;true;false;false;true
+5;Chips integrated Officer;;true;Corporate Refined;78447;../fake-data/blob/hipster.txt;false;false;false;false;false;true;true;true
+6;Berkshire synthesize;;true;exploit;48831;../fake-data/blob/hipster.txt;false;true;false;false;false;true;true;false
+7;blue;;true;toolset Buckinghamshire;6804;../fake-data/blob/hipster.txt;true;false;false;false;false;true;true;true
+8;Avon transmitting;;false;Credit Card Account;97633;../fake-data/blob/hipster.txt;true;false;false;false;true;true;true;false
+9;orchid;;true;JBOD;60938;../fake-data/blob/hipster.txt;true;false;false;true;false;false;false;false
+10;Computers experiences;;true;optical neutral SCSI;40798;../fake-data/blob/hipster.txt;false;true;false;true;false;true;false;true

@@ -1,0 +1,11 @@
+id;daytime;card_no;card_type;direction;access_ack;gate_id;access_code_id;access_id
+1;2020-12-13T00:45:48;SDD;m;87994;false;1;1;1
+2;2020-12-12T23:18:06;portal;H;83480;true;2;2;2
+3;2020-12-13T12:50:35;HTTP;w;92469;false;3;3;3
+4;2020-12-13T18:18:11;interactive XML;a;83087;false;4;4;4
+5;2020-12-13T03:46:51;withdrawal Developer;e;1829;false;5;5;5
+6;2020-12-13T12:47:02;Credit Card Account ;p;13151;false;6;6;6
+7;2020-12-13T13:01:03;e-business Plastic;B;23933;true;7;7;7
+8;2020-12-12T21:04:39;disintermediate capa;p;62983;true;8;8;8
+9;2020-12-13T10:10:31;deposit digital Smal;R;64027;true;9;9;9
+10;2020-12-13T06:48:49;Cheese Beauty;S;14857;false;10;10;10

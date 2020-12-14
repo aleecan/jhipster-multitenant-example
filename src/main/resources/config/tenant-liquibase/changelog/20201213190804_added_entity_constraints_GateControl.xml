@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity GateControl.
+    -->
+    <changeSet id="20201213190804-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="gate_id"
+                                 baseTableName="gate_control"
+                                 constraintName="fk_gate_control_gate_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="gate"/>
+
+        <addForeignKeyConstraint baseColumnNames="access_code_id"
+                                 baseTableName="gate_control"
+                                 constraintName="fk_gate_control_access_code_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="access_code"/>
+
+        <addForeignKeyConstraint baseColumnNames="employee_id"
+                                 baseTableName="gate_control"
+                                 constraintName="fk_gate_control_employee_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="employee"/>
+
+        <addForeignKeyConstraint baseColumnNames="visitor_book_id"
+                                 baseTableName="gate_control"
+                                 constraintName="fk_gate_control_visitor_book_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="visitor_book"/>
+
+        <addForeignKeyConstraint baseColumnNames="access_id"
+                                 baseTableName="gate_control"
+                                 constraintName="fk_gate_control_access_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="access_control"/>
+
+    </changeSet>
+</databaseChangeLog>

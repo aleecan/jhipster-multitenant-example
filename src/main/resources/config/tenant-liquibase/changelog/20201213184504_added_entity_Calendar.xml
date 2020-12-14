@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+        <property name="autoIncrement" value="true"/>
+
+    <!--
+        Added the entity Calendar.
+    -->
+    <changeSet id="20201213184504-1" author="jhipster">
+        <createTable tableName="calendar">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="code" type="varchar(10)">
+                <constraints nullable="false" />
+            </column>
+            <column name="description" type="varchar(80)">
+                <constraints nullable="true" />
+            </column>
+            <column name="assign_shift_day" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="shift_assign_method" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="day_start_time" type="varchar(8)">
+                <constraints nullable="true" />
+            </column>
+            <column name="apply_weekly_balance" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="balance_weeks_in_month" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="weekend_day" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="flexible_working_time" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="day_off" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="flexible_shift" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="week_hours" type="double">
+                <constraints nullable="true" />
+            </column>
+            <column name="week_hours_min" type="double">
+                <constraints nullable="true" />
+            </column>
+            <column name="week_hours_max" type="double">
+                <constraints nullable="true" />
+            </column>
+            <column name="monthly_balance_01" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="monthly_balance_02" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="monthly_balance_03" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="monthly_balance_04" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="monthly_balance_05" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="monthly_balance_06" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="monthly_balance_07" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="monthly_balance_08" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="monthly_balance_09" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="monthly_balance_10" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="monthly_balance_11" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="monthly_balance_12" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="own_calendar" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="own_weekly_work" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="own_day_off" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="own_na_start_flex" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="own_schedules" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="own_week_hours" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="own_monthly_balance" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="created" type="datetime">
+                <constraints nullable="true" />
+            </column>
+            <column name="modified" type="datetime">
+                <constraints nullable="true" />
+            </column>
+            <column name="modified_user" type="varchar(80)">
+                <constraints nullable="true" />
+            </column>
+            <column name="weekly_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="standard_schedule_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="saturday_schedule_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="weekend_schedule_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="absent_schedule_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="process_entry_exit_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="process_holiday_leave_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="process_daily_analysis_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="process_daily_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="process_monthly_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="process_previous_monthly_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
+        </createTable>
+        <dropDefaultValue tableName="calendar" columnName="created" columnDataType="datetime"/>
+        <dropDefaultValue tableName="calendar" columnName="modified" columnDataType="datetime"/>
+    </changeSet>
+
+    <changeSet id="20201213184504-1-relations" author="jhipster">
+
+    </changeSet>
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here -->
+
+    <!--
+        Load sample data generated with Faker.js
+        - This data can be easily edited using a CSV editor (or even MS Excel) and
+          is located in the 'src/main/resources/config/liquibase/fake-data' directory
+        - By default this data is applied when running with the JHipster 'dev' profile.
+          This can be customized by adding or removing 'faker' in the 'spring.liquibase.contexts'
+          Spring Boot configuration key.
+    -->
+    <changeSet id="20201213184504-1-data" author="jhipster" context="faker">
+        <loadData
+                  file="config/tenant-liquibase/fake-data/calendar.csv"
+                  separator=";"
+                  tableName="calendar">
+            <column name="id" type="numeric"/>
+            <column name="code" type="string"/>
+            <column name="description" type="string"/>
+            <column name="assign_shift_day" type="numeric"/>
+            <column name="shift_assign_method" type="numeric"/>
+            <column name="day_start_time" type="string"/>
+            <column name="apply_weekly_balance" type="boolean"/>
+            <column name="balance_weeks_in_month" type="boolean"/>
+            <column name="weekend_day" type="boolean"/>
+            <column name="flexible_working_time" type="boolean"/>
+            <column name="day_off" type="numeric"/>
+            <column name="flexible_shift" type="boolean"/>
+            <column name="week_hours" type="numeric"/>
+            <column name="week_hours_min" type="numeric"/>
+            <column name="week_hours_max" type="numeric"/>
+            <column name="monthly_balance_01" type="numeric"/>
+            <column name="monthly_balance_02" type="numeric"/>
+            <column name="monthly_balance_03" type="numeric"/>
+            <column name="monthly_balance_04" type="numeric"/>
+            <column name="monthly_balance_05" type="numeric"/>
+            <column name="monthly_balance_06" type="numeric"/>
+            <column name="monthly_balance_07" type="numeric"/>
+            <column name="monthly_balance_08" type="numeric"/>
+            <column name="monthly_balance_09" type="numeric"/>
+            <column name="monthly_balance_10" type="numeric"/>
+            <column name="monthly_balance_11" type="numeric"/>
+            <column name="monthly_balance_12" type="numeric"/>
+            <column name="own_calendar" type="boolean"/>
+            <column name="own_weekly_work" type="boolean"/>
+            <column name="own_day_off" type="boolean"/>
+            <column name="own_na_start_flex" type="boolean"/>
+            <column name="own_schedules" type="boolean"/>
+            <column name="own_week_hours" type="boolean"/>
+            <column name="own_monthly_balance" type="boolean"/>
+            <column name="created" type="datetime"/>
+            <column name="modified" type="datetime"/>
+            <column name="modified_user" type="string"/>
+            <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->
+        </loadData>
+    </changeSet>
+
+</databaseChangeLog>

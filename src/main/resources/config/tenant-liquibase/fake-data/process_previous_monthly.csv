@@ -1,0 +1,11 @@
+id;description;date_year;date_month;select_start_end_date_of_month;start_date;end_date;calc_wages_salary_type_as_monthly;use_default_value_for_absence;apply_percentage_for_regularday;check_max_hour;max_hour;complete_min_hour_after_balance
+1;Plastic markets;2983;14568;false;2020-12-13;2020-12-13;true;false;false;true;69677;true
+2;Mayotte wireless;2587;98996;true;2020-12-13;2020-12-13;true;false;false;false;42215;false
+3;Licensed;32297;58408;true;2020-12-12;2020-12-13;false;true;true;false;91821;true
+4;architectures;11086;8822;true;2020-12-13;2020-12-13;false;false;false;true;70102;false
+5;Money Market Account;75787;22631;true;2020-12-12;2020-12-13;true;true;true;false;15753;false
+6;generate synergize harness;78982;4110;false;2020-12-13;2020-12-13;false;false;false;true;52121;true
+7;Incredible;85099;69695;true;2020-12-13;2020-12-12;true;false;true;false;50016;false
+8;Borders;76988;97442;false;2020-12-13;2020-12-13;false;false;false;false;19453;true
+9;aggregate payment granular;73523;40424;true;2020-12-13;2020-12-13;false;true;false;true;90365;false
+10;Ways Heard Island and McDonald Islands;12347;9419;true;2020-12-13;2020-12-13;true;true;false;false;67775;false

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity EntryExitChange.
+    -->
+    <changeSet id="20201213190304-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="entry_exit_id"
+                                 baseTableName="entry_exit_change"
+                                 constraintName="fk_entry_exit_change_entry_exit_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="entry_exit"/>
+
+    </changeSet>
+</databaseChangeLog>

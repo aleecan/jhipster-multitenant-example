@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity Terminal.
+    -->
+    <changeSet id="20201213195104-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="company_firm_id"
+                                 baseTableName="terminal"
+                                 constraintName="fk_terminal_company_firm_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="company_firm"/>
+
+        <addForeignKeyConstraint baseColumnNames="company_sub_firm_id"
+                                 baseTableName="terminal"
+                                 constraintName="fk_terminal_company_sub_firm_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="company_sub_firm"/>
+
+        <addForeignKeyConstraint baseColumnNames="group_code_id"
+                                 baseTableName="terminal"
+                                 constraintName="fk_terminal_group_code_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="group_code"/>
+
+        <addForeignKeyConstraint baseColumnNames="private_code_id"
+                                 baseTableName="terminal"
+                                 constraintName="fk_terminal_private_code_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="private_code"/>
+
+    </changeSet>
+</databaseChangeLog>
