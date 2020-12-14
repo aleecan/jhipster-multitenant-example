@@ -1,5 +1,6 @@
 package com.mikado.multitenant.config.multitenant;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 import com.mikado.multitenant.config.DatabaseConfiguration;
@@ -7,6 +8,7 @@ import com.mikado.multitenant.domain.DataSourceConfig;
 import com.mikado.multitenant.repository.DataSourceConfigRepository;
 import com.zaxxer.hikari.metrics.micrometer.MicrometerMetricsTrackerFactory;
 import io.micrometer.core.instrument.simple.SimpleMeterRegistry;
+import liquibase.integration.spring.MultiTenantSpringLiquibase;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +17,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.core.env.Environment;
+import org.springframework.core.env.Profiles;
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.core.task.TaskExecutor;
 import org.springframework.jdbc.datasource.lookup.MapDataSourceLookup;
@@ -57,12 +60,12 @@ public class MultiTenantDataSourceLookup extends MapDataSourceLookup {
     }
 
     @EventListener
-    public void handleContextRefresh(ContextRefreshedEvent event) throws LiquibaseException {
+    public void handleContextRefresh(ContextRefreshedEvent event) throws LiquibaseException, Exception {
         DataSourceConfigRepository configRepository = context.getBean(DataSourceConfigRepository.class);
         addTenantDataSources(configRepository.findAll());
     }
 
-    void addTenantDataSources(Collection<DataSourceConfig> dataSources) throws LiquibaseException {
+    void addTenantDataSources(Collection<DataSourceConfig> dataSources) throws LiquibaseException, Exception {
         for (DataSourceConfig dataSource : dataSources) {
             // Add new datasource with own configuration per tenant
             HikariDataSource customDataSource = createTenantDataSource(dataSource);
@@ -72,21 +75,29 @@ public class MultiTenantDataSourceLookup extends MapDataSourceLookup {
         }
     }
 
-    private void liquibaseUpdate(HikariDataSource customDataSource) throws LiquibaseException {
-        SpringLiquibase liquibase = new AsyncSpringLiquibase(taskExecutor, environment);
-        liquibase.setResourceLoader(resourceLoader);
-        liquibase.setDataSource(customDataSource);
-        liquibase.setChangeLog("classpath:config/tenant-liquibase/master.xml");
-        liquibase.setContexts(liquibaseProperties.getContexts());
-        liquibase.setDefaultSchema(liquibaseProperties.getDefaultSchema());
-        liquibase.setDropFirst(liquibaseProperties.isDropFirst());
-        if (environment.acceptsProfiles(JHipsterConstants.SPRING_PROFILE_NO_LIQUIBASE)) {
-            liquibase.setShouldRun(false);
+    private void liquibaseUpdate(HikariDataSource customDataSource) throws Exception {
+
+        MultiTenantSpringLiquibase multi = new MultiTenantSpringLiquibase();
+        multi.setDataSource(customDataSource);
+        multi.setChangeLog("classpath:config/tenant-liquibase/master.xml");
+        multi.setContexts(liquibaseProperties.getContexts());
+        multi.setDefaultSchema(liquibaseProperties.getDefaultSchema());
+        multi.setLiquibaseSchema(liquibaseProperties.getLiquibaseSchema());
+        multi.setLiquibaseTablespace(liquibaseProperties.getLiquibaseTablespace());
+        multi.setDatabaseChangeLogLockTable(liquibaseProperties.getDatabaseChangeLogLockTable());
+        multi.setDatabaseChangeLogTable(liquibaseProperties.getDatabaseChangeLogTable());
+        multi.setDropFirst(liquibaseProperties.isDropFirst());
+        multi.setLabels(liquibaseProperties.getLabels());
+        multi.setRollbackFile(liquibaseProperties.getRollbackFile());
+
+        if (environment.acceptsProfiles(Profiles.of(JHipsterConstants.SPRING_PROFILE_NO_LIQUIBASE))) {
+            multi.setShouldRun(false);
         } else {
-            liquibase.setShouldRun(liquibaseProperties.isEnabled());
-            logger.debug("Configuring Liquibase");
+            multi.setShouldRun(liquibaseProperties.isEnabled());
+            log.debug("Configuring Liquibase multitenant mode");
         }
-        liquibase.afterPropertiesSet();
+        multi.afterPropertiesSet();
+
     }
 
     private HikariDataSource createTenantDataSource(DataSourceConfig dataSource) {
