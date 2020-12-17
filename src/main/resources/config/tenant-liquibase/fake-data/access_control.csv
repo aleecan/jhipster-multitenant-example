@@ -1,0 +1,11 @@
+id;day_time;card_no;card_type;direction;accepted;access_ack;module_type;rd_employee;real_time;exported
+1;2020-12-13T18:00:00;open-source Metal;d;49157;true;false;85832;false;true;true
+2;2020-12-13T00:53:50;Cayman Islands Dolla;K;41086;false;false;77246;true;true;true
+3;2020-12-12T22:23:44;Plastic COM;i;23150;false;false;52771;true;false;true
+4;2020-12-13T17:49:29;calculate back-end b;c;35271;true;true;43072;false;true;false
+5;2020-12-13T05:39:48;convergence payment;S;13771;false;false;60560;false;true;true
+6;2020-12-13T00:48:26;Investment Account;M;1219;true;true;75519;false;true;false
+7;2020-12-13T14:31:52;Norfolk Island;L;97505;true;false;29566;true;true;false
+8;2020-12-13T03:02:04;orchestrate;B;25548;true;false;4500;true;false;false
+9;2020-12-13T14:29:23;Program Identity Tal;w;68966;true;true;5882;true;true;true
+10;2020-12-13T03:32:35;withdrawal;H;46780;true;true;59405;true;true;true

@@ -1,0 +1,11 @@
+id;description;run_for_all_employee;apply_tolerances;check_early_entry_late_exit;check_late_entry_early_exit;apply_tolerance_first_entry_last_exit;check_prev_and_next_day_schedule;use_prev_day_shift_group;use_first_entry_last_exit;complete_work_when_missing_entry_exit;created;modified;modified_user
+1;deposit e-business circuit;false;false;false;true;false;false;false;true;true;2020-12-13T13:39:02;2020-12-12T23:05:55;Moroccan Dirham intuitive
+2;withdrawal Club Netherlands Antillian Guilder;false;false;true;false;true;true;true;true;true;2020-12-12T21:18:00;2020-12-13T16:56:35;data-warehouse Handcrafted
+3;Forward Texas;true;false;false;true;false;true;false;false;false;2020-12-13T07:04:27;2020-12-13T17:01:10;Research
+4;Gorgeous content;false;true;false;true;true;false;true;true;true;2020-12-13T05:08:12;2020-12-13T14:56:11;Auto Loan Account
+5;silver Grocery compressing;false;true;false;false;false;true;true;false;false;2020-12-12T23:40:07;2020-12-12T23:03:19;modular Movies interface
+6;Berkshire Inlet Re-contextualized;false;true;false;true;true;true;false;true;false;2020-12-12T22:13:39;2020-12-13T01:45:07;optical
+7;Avon non-volatile payment;true;true;true;false;false;false;false;false;true;2020-12-12T22:10:37;2020-12-13T19:12:45;olive quantify
+8;indexing Research actuating;true;false;false;false;false;true;true;true;false;2020-12-13T11:14:30;2020-12-13T04:14:20;asynchronous Money Market Account
+9;Granite Ball Developer;false;false;true;false;true;false;false;false;false;2020-12-13T19:06:11;2020-12-13T01:35:40;Awesome Granite Gloves West Virginia
+10;tan;false;true;false;false;false;false;true;true;false;2020-12-12T21:03:32;2020-12-13T05:28:12;cyan

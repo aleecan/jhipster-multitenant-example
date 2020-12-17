@@ -1,0 +1,11 @@
+id;code;description;active;timekeeping;access_status;external_zone;check_apb;reset_time_apb;employee_counter;external_counter;others_counter;vehicle_counter;visitor_counter;participant_counter;send_counter_change;max_stay_time_in_zone;max_user_in_zone;min_user_in_zone
+1;connec;interactive green;true;false;86915;true;true;92281;false;true;true;true;false;false;false;29527;37178;39397
+2;Clothi;communities microchip;false;false;98211;true;false;38014;false;false;true;false;true;true;true;22167;31546;43770
+3;neural;vortals upward-trending orange;true;false;26435;true;true;21636;false;false;true;false;false;false;false;56966;66577;58308
+4;Baby A;copying ADP Checking Account;true;false;9769;true;true;99471;false;false;true;false;false;false;true;17006;17354;41901
+5;Tasty ;Hills Clothing Finland;true;false;91574;false;true;75957;true;true;false;true;false;true;false;85526;84433;23314
+6;Street;application;false;true;72176;false;true;36879;true;false;false;true;false;false;true;1338;6650;97269
+7;Egypt ;Heard Island and McDonald Islands;true;true;95733;true;true;901;true;false;true;false;true;false;false;29315;88931;19738
+8;magent;architecture Lodge;false;false;69478;true;false;21123;true;true;false;false;true;true;false;89139;74197;84435
+9;withdr;invoice withdrawal;true;false;98216;true;false;88752;false;false;true;false;false;true;false;51522;33332;62229
+10;missio;Tasty Steel Pizza didactic;false;true;38504;true;true;88222;false;false;false;false;true;true;true;53355;58489;58140

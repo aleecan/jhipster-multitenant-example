@@ -1,0 +1,11 @@
+id;daydate;approval;approval_2;approval_3;created;modified;modified_user;employee_id;schedule_id
+1;2020-12-13;false;true;false;2020-12-13T03:00:46;2020-12-13T08:59:30;Parks reintermediate Swiss Franc;1;1
+2;2020-12-12;true;true;false;2020-12-13T10:57:27;2020-12-13T00:21:10;brand Integration;2;2
+3;2020-12-13;false;false;false;2020-12-13T18:47:09;2020-12-13T14:12:29;Car;3;3
+4;2020-12-13;false;false;false;2020-12-13T06:34:47;2020-12-13T07:52:22;Fish Steel systematic;4;4
+5;2020-12-13;true;false;false;2020-12-13T01:23:53;2020-12-13T05:14:20;Awesome Soft Chicken THX card;5;5
+6;2020-12-13;true;false;true;2020-12-13T03:52:17;2020-12-13T17:34:17;Rustic Concrete Chicken Berkshire pixel;6;6
+7;2020-12-13;true;false;false;2020-12-12T21:00:25;2020-12-13T06:01:18;Myanmar Programmable;7;7
+8;2020-12-13;false;false;false;2020-12-12T23:28:15;2020-12-13T00:47:55;Steel;8;8
+9;2020-12-13;true;false;false;2020-12-13T07:08:01;2020-12-13T06:48:49;pricing structure Avon;9;9
+10;2020-12-13;false;false;false;2020-12-12T22:53:34;2020-12-13T06:01:53;Rand Namibia Dollar Architect;10;10

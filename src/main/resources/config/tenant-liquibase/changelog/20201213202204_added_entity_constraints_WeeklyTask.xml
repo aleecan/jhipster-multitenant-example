@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity WeeklyTask.
+    -->
+    <changeSet id="20201213202204-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="weekly_id"
+                                 baseTableName="weekly_task"
+                                 constraintName="fk_weekly_task_weekly_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="weekly"/>
+
+        <addForeignKeyConstraint baseColumnNames="task_id"
+                                 baseTableName="weekly_task"
+                                 constraintName="fk_weekly_task_task_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="task"/>
+
+        <addForeignKeyConstraint baseColumnNames="category_id"
+                                 baseTableName="weekly_task"
+                                 constraintName="fk_weekly_task_category_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="category"/>
+
+    </changeSet>
+</databaseChangeLog>

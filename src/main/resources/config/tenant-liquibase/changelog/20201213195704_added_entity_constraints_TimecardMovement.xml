@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity TimecardMovement.
+    -->
+    <changeSet id="20201213195704-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="employee_id"
+                                 baseTableName="timecard_movement"
+                                 constraintName="fk_timecard_movement_employee_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="employee"/>
+
+        <addForeignKeyConstraint baseColumnNames="reason_id"
+                                 baseTableName="timecard_movement"
+                                 constraintName="fk_timecard_movement_reason_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="category"/>
+
+        <addForeignKeyConstraint baseColumnNames="terminal_id"
+                                 baseTableName="timecard_movement"
+                                 constraintName="fk_timecard_movement_terminal_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="terminal"/>
+
+        <addForeignKeyConstraint baseColumnNames="access_control_id"
+                                 baseTableName="timecard_movement"
+                                 constraintName="fk_timecard_movement_access_control_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="access_control"/>
+
+    </changeSet>
+</databaseChangeLog>

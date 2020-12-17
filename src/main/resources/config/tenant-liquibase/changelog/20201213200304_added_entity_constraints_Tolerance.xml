@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity Tolerance.
+    -->
+    <changeSet id="20201213200304-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="tolerance_group_id"
+                                 baseTableName="tolerance"
+                                 constraintName="fk_tolerance_tolerance_group_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="tolerance_group"/>
+
+    </changeSet>
+</databaseChangeLog>

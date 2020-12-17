@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity WorkContractPeriod.
+    -->
+    <changeSet id="20201213202504-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="work_contract_id"
+                                 baseTableName="work_contract_period"
+                                 constraintName="fk_work_contract_period_work_contract_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="work_contract"/>
+
+        <addForeignKeyConstraint baseColumnNames="process_entry_exit_id"
+                                 baseTableName="work_contract_period"
+                                 constraintName="fk_work_contract_period_process_entry_exit_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="process_entry_exit"/>
+
+        <addForeignKeyConstraint baseColumnNames="process_holiday_leave_id"
+                                 baseTableName="work_contract_period"
+                                 constraintName="fk_work_contract_period_process_holiday_leave_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="process_holiday_leave"/>
+
+        <addForeignKeyConstraint baseColumnNames="process_daily_analysis_id"
+                                 baseTableName="work_contract_period"
+                                 constraintName="fk_work_contract_period_process_daily_analysis_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="process_daily_analysis"/>
+
+        <addForeignKeyConstraint baseColumnNames="process_daily_id"
+                                 baseTableName="work_contract_period"
+                                 constraintName="fk_work_contract_period_process_daily_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="process_daily"/>
+
+        <addForeignKeyConstraint baseColumnNames="process_monthly_id"
+                                 baseTableName="work_contract_period"
+                                 constraintName="fk_work_contract_period_process_monthly_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="process_monthly"/>
+
+        <addForeignKeyConstraint baseColumnNames="process_previous_monthly_id"
+                                 baseTableName="work_contract_period"
+                                 constraintName="fk_work_contract_period_process_previous_monthly_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="process_previous_monthly"/>
+
+    </changeSet>
+</databaseChangeLog>

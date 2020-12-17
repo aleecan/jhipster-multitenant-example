@@ -1,0 +1,11 @@
+id;description;start_date;end_date;do_not_update_old_transaction;use_previous_day_schedule_group;check_other_day_schedule
+1;Senior Bedfordshire Principal;2020-12-12;2020-12-13;false;false;false
+2;matrix;2020-12-12;2020-12-12;true;false;true
+3;Incredible;2020-12-13;2020-12-12;true;true;false
+4;mesh Crest index;2020-12-13;2020-12-13;true;true;false
+5;solutions;2020-12-13;2020-12-13;true;false;false
+6;Shoes intermediate;2020-12-12;2020-12-13;false;false;true
+7;firewall applications Designer;2020-12-12;2020-12-13;true;true;false
+8;pixel orange Handcrafted Concrete Chips;2020-12-13;2020-12-13;true;false;true
+9;Cuba microchip;2020-12-13;2020-12-13;false;false;false
+10;Computer Rand Namibia Dollar multi-byte;2020-12-12;2020-12-13;true;true;false
