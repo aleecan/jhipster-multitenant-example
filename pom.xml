@@ -10,11 +10,11 @@
         <relativePath/>
     </parent>
 
-    <groupId>com.mikado.multitenant</groupId>
+    <groupId>com.mikado.mikadosaas</groupId>
     <artifactId>mikado-backend</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>war</packaging>
-    <name>Multitenant</name>
+    <name>Mikado Backend</name>
 
     <properties>
         <argLine>-Djava.security.egd=file:/dev/./urandom -Xmx256m</argLine>
@@ -617,7 +617,7 @@
                     <username>root</username>
                     <password>1</password>
                     <referenceUrl>
-                        hibernate:spring:com.mikado.multitenant.domain?dialect=org.hibernate.dialect.MySQL5InnoDBDialect&amp;hibernate.physical_naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy&amp;hibernate.implicit_naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
+                        hibernate:spring:com.mikado.mikadosaas.domain?dialect=org.hibernate.dialect.MySQL5InnoDBDialect&amp;hibernate.physical_naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy&amp;hibernate.implicit_naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
                     </referenceUrl>
                     <verbose>true</verbose>
                     <logging>debug</logging>
@@ -668,7 +668,7 @@
                 <artifactId>docker-maven-plugin</artifactId>
                 <version>${docker-maven-plugin.version}</version>
                 <configuration>
-                    <imageName>multitenant</imageName>
+                    <imageName>mikadosaas</imageName>
                     <dockerDirectory>src/main/docker</dockerDirectory>
                     <resources>
                         <resource>

@@ -2,16 +2,16 @@
 This application was generated using JHipster 4.6.2, you can find documentation and help at [https://jhipster.github.io/documentation-archive/v4.6.2](https://jhipster.github.io/documentation-archive/v4.6.2).
 
 ## Modified files from original generated
-src/main/java/com/souzadriano/multitenant/config/DatabaseConfiguration.java
-src/main/java/com/souzadriano/multitenant/domain/User.java
-src/main/java/com/souzadriano/multitenant/security/DomainUserDetailsService.java
-src/main/java/com/souzadriano/multitenant/security/SecurityUtils.java
-src/main/java/com/souzadriano/multitenant/security/jwt/TokenProvider.java
+src/main/java/com/mikado/multitenant/config/DatabaseConfiguration.java
+src/main/java/com/mikado/multitenant/domain/User.java
+src/main/java/com/mikado/multitenant/security/DomainUserDetailsService.java
+src/main/java/com/mikado/multitenant/security/SecurityUtils.java
+src/main/java/com/mikado/multitenant/security/jwt/TokenProvider.java
 src/main/resources/config/liquibase/changelog/00000000000000_initial_schema.xml
-src/main/java/com/souzadriano/multitenant/config/multitenant/*
-src/main/java/com/souzadriano/multitenant/domain/DataSourceConfig.java
-src/main/java/com/souzadriano/multitenant/repository/DataSourceConfigRepository.java
-src/main/java/com/souzadriano/multitenant/security/UserDetails.java
+src/main/java/com/mikado/multitenant/config/multitenant/*
+src/main/java/com/mikado/multitenant/domain/DataSourceConfig.java
+src/main/java/com/mikado/multitenant/repository/DataSourceConfigRepository.java
+src/main/java/com/mikado/multitenant/security/UserDetails.java
 
 ## Development
 

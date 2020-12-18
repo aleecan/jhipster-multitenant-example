@@ -15,14 +15,14 @@
 
 spring:
     application:
-        name: multitenant
+        name: mikadosaas
     jackson:
         serialization.write_dates_as_timestamps: false
     cache:
         type: none
     datasource:
         type: com.zaxxer.hikari.HikariDataSource
-        url: jdbc:h2:mem:multitenant;DB_CLOSE_DELAY=-1
+        url: jdbc:h2:mem:mikadosaas;DB_CLOSE_DELAY=-1
         name:
         username:
         password:
